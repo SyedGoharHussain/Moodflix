@@ -4,40 +4,73 @@ export default {
   theme: {
     extend: {
       colors: {
-        rust: { DEFAULT: '#8B3A2A', deep: '#5C2218', pale: '#C47555' },
-        stone: { DEFAULT: '#2A2320', mid: '#3D3330', light: '#6B5C57' },
-        parchment: { DEFAULT: '#F4EDE4', dark: '#E8DDD3' },
-        ash: '#B8ABA4',
-        cream: '#FAF7F4',
+        // Backgrounds — pure black-on-black ladder
+        bg: {
+          base:     '#000000',
+          elevated: '#0a0a0a',
+          card:     '#141414',
+          hover:    '#1f1f1f',
+        },
+        // Borders
+        line: {
+          subtle: '#1f1f1f',
+          DEFAULT: '#262626',
+          strong: '#3a3a3a',
+        },
+        // Text
+        ink: {
+          DEFAULT: '#ffffff',
+          dim:     '#a3a3a3',
+          mute:    '#6b6b6b',
+          faint:   '#404040',
+        },
+        // Accents
+        accent: {
+          red:  '#e50914',   // Netflix-red, used very sparingly
+          cyan: '#00d4ff',   // "intelligence" — AI / mood signals
+          mood: '#7c5cff',   // calmer mood-pulse purple
+        },
       },
       fontFamily: {
-        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        body: ['"Karla"', 'system-ui', 'sans-serif'],
+        display: ['"Manrope"', 'system-ui', 'sans-serif'],
+        body: ['"Inter"', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       animation: {
-        'float': 'float 6s ease-in-out infinite',
-        'glow': 'glow 2s ease-in-out infinite alternate',
-        'fade-up': 'fadeUp 0.6s ease-out',
-        'shimmer': 'shimmer 2s linear infinite',
+        'fade-in-up': 'fadeInUp 0.6s ease-out both',
+        'card-expand': 'cardExpand 0.35s cubic-bezier(.2,.8,.2,1) both',
+        'mood-pulse': 'moodPulse 2.4s ease-in-out infinite',
+        'shimmer': 'shimmer 1.6s linear infinite',
+        'gradient-pan': 'gradientPan 18s ease infinite',
       },
       keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
-        },
-        glow: {
-          '0%': { boxShadow: '0 0 20px rgba(139,58,42,0.2)' },
-          '100%': { boxShadow: '0 0 40px rgba(139,58,42,0.4)' },
-        },
-        fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(30px)' },
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(24px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        cardExpand: {
+          '0%':   { transform: 'scale(1)',    boxShadow: '0 0 0 rgba(0,0,0,0)' },
+          '100%': { transform: 'scale(1.08)', boxShadow: '0 20px 60px -10px rgba(0,0,0,0.95)' },
+        },
+        moodPulse: {
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(0,212,255,0.0)' },
+          '50%':      { boxShadow: '0 0 36px 0 rgba(0,212,255,0.35)' },
+        },
         shimmer: {
-          '0%': { backgroundPosition: '-200% 0' },
+          '0%':   { backgroundPosition: '-200% 0' },
           '100%': { backgroundPosition: '200% 0' },
         },
+        gradientPan: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%':      { backgroundPosition: '100% 50%' },
+        },
+      },
+      backgroundImage: {
+        'fade-down': 'linear-gradient(180deg, rgba(0,0,0,0) 0%, #000 80%)',
+        'fade-up':   'linear-gradient(0deg, rgba(0,0,0,0) 0%, #000 80%)',
+        'fade-right':'linear-gradient(90deg, rgba(0,0,0,0) 0%, #000 100%)',
+        'fade-left': 'linear-gradient(270deg, rgba(0,0,0,0) 0%, #000 100%)',
+        'cyan-glow': 'radial-gradient(circle at 50% 0%, rgba(0,212,255,0.18) 0%, transparent 60%)',
       },
     },
   },
