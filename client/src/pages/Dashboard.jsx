@@ -57,49 +57,38 @@ export default function Dashboard() {
     fetchMoodPicks()
   }, [activeMood])
 
-  const handleMoodDetected = () => {
-    // Mood picks will auto-update via the useEffect
-  }
-
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="min-h-screen pt-24 pb-20"
-    >
-      {/* Mood Section */}
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="min-h-screen pt-24 pb-20 bg-bg-base">
       <section className="max-w-7xl mx-auto px-4 sm:px-6 mb-12">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-8"
         >
-          <h1 className="font-display text-4xl sm:text-5xl text-parchment mb-3">
+          <h1 className="font-display text-4xl sm:text-5xl text-ink font-extrabold tracking-tight mb-3">
             {activeMood
-              ? <>Because You Feel <span className="text-rust-pale capitalize">{activeMood}</span></>
+              ? <>Because you feel <span className="text-accent-cyan capitalize">{activeMood}</span></>
               : 'How are you feeling?'}
           </h1>
-          <p className="text-ash font-body">
+          <p className="text-ink-dim font-body">
             {activeMood
               ? 'Here are your AI-curated recommendations'
               : 'Tell us your mood and we\'ll find the perfect watch'}
           </p>
         </motion.div>
-        <MoodInput onMoodDetected={handleMoodDetected} />
+        <MoodInput />
       </section>
 
-      {/* Mood-Based Recommendations */}
       {activeMood && (
         <section className="max-w-7xl mx-auto">
           {moodLoading ? (
             <div className="mb-12">
-              <div className="px-6 mb-4"><div className="h-8 w-64 rounded skeleton" /></div>
+              <div className="px-6 mb-3"><div className="h-6 w-64 rounded skeleton" /></div>
               <SkeletonCard />
             </div>
           ) : moodPicks.length > 0 ? (
             <MovieCarousel
-              title={`Because You Feel ${activeMood.charAt(0).toUpperCase() + activeMood.slice(1)}`}
+              title={`Because you feel ${activeMood}`}
               subtitle="AI-curated picks based on your emotional state"
               movies={moodPicks}
               icon={FiTarget}
@@ -108,13 +97,12 @@ export default function Dashboard() {
         </section>
       )}
 
-      {/* Other Sections */}
       <section className="max-w-7xl mx-auto">
         {loading ? (
           <div className="space-y-12">
             {[1, 2, 3].map(i => (
               <div key={i}>
-                <div className="px-6 mb-4"><div className="h-8 w-48 rounded skeleton" /></div>
+                <div className="px-6 mb-3"><div className="h-6 w-48 rounded skeleton" /></div>
                 <SkeletonCard />
               </div>
             ))}
