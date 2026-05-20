@@ -33,7 +33,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <img src={logo} alt="MoodFlix" className="h-10 w-auto" />
+            <img src={logo} alt="MoodFlix" className="h-16 w-auto" />
           </Link>
 
           {/* Center Nav Links */}
