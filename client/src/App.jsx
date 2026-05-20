@@ -12,7 +12,7 @@ import Profile from './pages/Profile.jsx'
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-stone">
+      <div className="min-h-screen bg-bg-base text-ink">
         <Navbar />
         <AnimatePresence mode="wait">
           <Routes>
