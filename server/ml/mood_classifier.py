@@ -183,6 +183,17 @@ class MoodClassifier:
         Analyze text and return mood prediction.
         Returns: {detected_mood, confidence, emotion_breakdown, source}
         """
+        # 0. Direct mood bypass — when the user explicitly picks a mood from the UI
+        #    the input will be exactly one of the 16 category names.
+        direct = text.lower().strip()
+        if direct in MOOD_CATEGORIES:
+            return {
+                "detected_mood": direct,
+                "confidence": 0.92,
+                "emotion_breakdown": {direct: 0.92},
+                "source": "direct",
+            }
+
         # 1. Try emoji detection first
         emoji_result = _detect_emoji_mood(text)
 
@@ -277,15 +288,16 @@ def train_model(data_path: str = None):
 
     pipeline = Pipeline([
         ("tfidf", TfidfVectorizer(
-            max_features=10000,
-            ngram_range=(1, 2),
-            min_df=2,
+            max_features=15000,
+            ngram_range=(1, 3),
+            min_df=1,
             max_df=0.95,
             sublinear_tf=True,
+            analyzer="word",
         )),
         ("clf", LogisticRegression(
-            max_iter=1000,
-            C=1.0,
+            max_iter=2000,
+            C=5.0,
             class_weight="balanced",
             solver="lbfgs",
             multi_class="multinomial",

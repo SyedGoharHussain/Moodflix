@@ -1,766 +1,765 @@
 text,mood
-"I'm so happy today everything is wonderful",happy
-"Feeling great and full of joy",happy
-"What an amazing day I love life",happy
-"I feel cheerful and blessed",happy
-"Today was the best day ever so much fun",happy
-"I'm in such a good mood right now",happy
-"Everything is going perfectly I'm thrilled",happy
-"Laughing so hard right now this is hilarious",happy
-"Can't stop smiling feeling fantastic",happy
-"Life is beautiful and I'm grateful",happy
-"Just got great news I'm ecstatic",happy
-"Having the time of my life",happy
-"So much happiness in my heart today",happy
-"Feeling on top of the world",happy
-"Pure bliss and sunshine vibes",happy
-"I feel so down and depressed",sad
-"Everything feels hopeless and empty",sad
-"I can't stop crying today",sad
-"My heart is broken into pieces",sad
-"Nothing makes me happy anymore",sad
-"Feeling really blue and miserable",sad
-"I just want to curl up and disappear",sad
-"The grief is overwhelming me",sad
-"Why does everything have to be so painful",sad
-"I feel like giving up on everything",sad
-"So much sorrow in my heart",sad
-"Tears keep falling I can't help it",sad
-"Feeling really depressed and lost",sad
-"Nothing is going right in my life",sad
-"My soul aches with sadness",sad
-"I feel so alone no one understands me",lonely
-"Sitting by myself again tonight",lonely
-"I wish I had someone to talk to",lonely
-"Nobody cares about me at all",lonely
-"The loneliness is crushing me",lonely
-"I feel so disconnected from everyone",lonely
-"Spending another night alone",lonely
-"I miss having someone close to me",lonely
-"Feeling abandoned and forgotten",lonely
-"No one ever reaches out to me",lonely
-"I'm surrounded by people but feel alone",lonely
-"Empty house empty heart",lonely
-"Wish I had a friend right now",lonely
-"The silence is deafening tonight",lonely
-"I feel invisible to everyone around me",lonely
-"I'm in love and everything is beautiful",romantic
-"My heart skips a beat when I think of you",romantic
-"I want to watch something about love",romantic
-"Feeling all the butterflies and romance",romantic
-"I need a sweet love story tonight",romantic
-"Missing my sweetheart so much",romantic
-"Love is in the air tonight",romantic
-"Dreaming about the perfect date",romantic
-"My heart is full of passion",romantic
-"I want something about soulmates",romantic
-"Feeling lovey dovey and affectionate",romantic
-"Romance is what I need right now",romantic
-"Thinking about my crush all day",romantic
-"Something with a beautiful love story",romantic
-"I believe in true love tonight",romantic
-"I'm so pumped and excited right now",excited
-"Can't contain my excitement",excited
-"Something thrilling and action packed please",excited
-"I need an adrenaline rush",excited
-"Give me something explosive and intense",excited
-"I'm fired up and ready for anything",excited
-"So hyped right now need something epic",excited
-"Feeling electrified and energetic",excited
-"I want something that gets my heart racing",excited
-"Ready for an adventure and excitement",excited
-"I'm buzzing with energy right now",excited
-"Need something fast paced and wild",excited
-"I want non stop action and thrills",excited
-"Adrenaline is pumping through my veins",excited
-"Something that will blow my mind",excited
-"I just want to relax and unwind",relaxed
-"Feeling calm and peaceful tonight",relaxed
-"Something light and easy going please",relaxed
-"I need to decompress after a long day",relaxed
-"Just vibing and feeling zen",relaxed
-"I want something soothing and gentle",relaxed
-"Feeling super chill right now",relaxed
-"Let me just lay back and enjoy",relaxed
-"Nothing heavy just pure comfort",relaxed
-"I'm in a lazy cozy mood",relaxed
-"Something mellow and laid back",relaxed
-"Time to kick back and relax",relaxed
-"Peaceful evening needs a peaceful movie",relaxed
-"Feeling tranquil and at ease",relaxed
-"Just want comfort and calm",relaxed
-"I'm so stressed out I can't breathe",stressed
-"Work is killing me I need a break",stressed
-"Everything is overwhelming right now",stressed
-"I'm so anxious about everything",stressed
-"Need something to take my mind off stress",stressed
-"I feel burned out and exhausted",stressed
-"So much pressure on my shoulders",stressed
-"Can't handle all this stress anymore",stressed
-"My brain is fried from work",stressed
-"I need to escape from all this tension",stressed
-"Feeling frazzled and on edge",stressed
-"Too many deadlines too little time",stressed
-"My nerves are completely shot",stressed
-"I just need to forget about my problems",stressed
-"Everything is too much right now",stressed
-"I want something dark and twisted",dark
-"Give me a psychological thriller",dark
-"I'm in the mood for something sinister",dark
-"Something disturbing and intense",dark
-"Show me the darkest movie you have",dark
-"I want to explore the shadows",dark
-"Feeling a bit morbid tonight",dark
-"Something gritty and raw please",dark
-"I need something that goes deep and dark",dark
-"Show me the darker side of humanity",dark
-"I want a noir thriller or dark drama",dark
-"Something with a creepy atmosphere",dark
-"Give me mind games and manipulation",dark
-"I crave something eerie and unsettling",dark
-"The darker the better tonight",dark
-"I need a good cry give me something emotional",emotional
-"My heart needs to feel something deep",emotional
-"I want a tear jerker that moves me",emotional
-"Something that will make me feel deeply",emotional
-"I need to process my emotions tonight",emotional
-"Give me something sentimental and touching",emotional
-"I want to feel all the feelings",emotional
-"A deeply moving story about life",emotional
-"Something heartfelt and poignant",emotional
-"I need an emotional journey right now",emotional
-"Give me a movie that makes me sob",emotional
-"I want something that touches my soul",emotional
-"Feeling vulnerable and want something real",emotional
-"A story that will leave me thinking",emotional
-"Something beautiful and deeply emotional",emotional
-"I need something that bends my mind",mind-bending
-"Give me a movie like Inception",mind-bending
-"I want a reality breaking experience",mind-bending
-"Something with a huge plot twist",mind-bending
-"Make my brain hurt with something complex",mind-bending
-"I want to question reality",mind-bending
-"Give me a philosophical thought experiment",mind-bending
-"Something trippy and surreal",mind-bending
-"I want my mind completely blown",mind-bending
-"Show me something I won't understand first time",mind-bending
-"I need a cerebral puzzle of a movie",mind-bending
-"Something that challenges my perception",mind-bending
-"Give me time travel and paradoxes",mind-bending
-"A movie that plays with your head",mind-bending
-"I want something intellectually stimulating",mind-bending
-"I want to learn something new",curious
-"Show me an amazing documentary",curious
-"I'm curious about the world",curious
-"Something that expands my knowledge",curious
-"I want to discover hidden truths",curious
-"Give me a fascinating true story",curious
-"I need something thought provoking",curious
-"Show me mysteries of the universe",curious
-"I'm interested in science and discovery",curious
-"Something that makes me think and wonder",curious
-"I want to explore the unknown",curious
-"Give me a good whodunit mystery",curious
-"Something intriguing and full of secrets",curious
-"I love investigative stories",curious
-"Feed my curiosity with something smart",curious
-"I'm feeling really nostalgic tonight",nostalgic
-"Take me back to the good old days",nostalgic
-"I miss my childhood so much",nostalgic
-"Something that reminds me of simpler times",nostalgic
-"I want a classic movie from the past",nostalgic
-"Remembering the good times makes me smile",nostalgic
-"Give me that retro vintage feeling",nostalgic
-"I want to relive old memories",nostalgic
-"Something that feels like home",nostalgic
-"Take me on a trip down memory lane",nostalgic
-"I miss how things used to be",nostalgic
-"Something with that throwback warmth",nostalgic
-"Reminiscing about better days",nostalgic
-"A timeless classic would be perfect",nostalgic
-"Feeling sentimental about the past",nostalgic
-"I need motivation and inspiration",motivated
-"Something that makes me want to conquer the world",motivated
-"I want a story about overcoming obstacles",motivated
-"Give me an underdog success story",motivated
-"I need to feel empowered right now",motivated
-"Show me a story of determination",motivated
-"Something about achieving dreams",motivated
-"I want to feel like I can do anything",motivated
-"Give me a story of triumph and glory",motivated
-"I need a push to keep going",motivated
-"Something about never giving up",motivated
-"I want to be inspired to chase my goals",motivated
-"A movie about rising from the ashes",motivated
-"Show me the power of perseverance",motivated
-"I need fuel for my ambition",motivated
-"I want an epic adventure",adventurous
-"Take me on a wild journey",adventurous
-"I need to explore new worlds",adventurous
-"Something with quests and exploration",adventurous
-"Give me a grand adventure story",adventurous
-"I want to travel the world through film",adventurous
-"Something daring and bold",adventurous
-"I crave expedition and discovery",adventurous
-"Take me somewhere I've never been",adventurous
-"An epic quest with brave heroes",adventurous
-"I want to feel the thrill of exploration",adventurous
-"Something with breathtaking landscapes",adventurous
-"Give me pirates treasure and high seas",adventurous
-"I need a grand journey tonight",adventurous
-"Adventure is calling my name",adventurous
-"I want something heartwarming and sweet",wholesome
-"Give me a feel good family movie",wholesome
-"Something cute and uplifting",wholesome
-"I need pure comfort and warmth",wholesome
-"A sweet story about kindness",wholesome
-"Something that restores my faith in humanity",wholesome
-"Give me a gentle heartwarming tale",wholesome
-"I want to feel cozy and happy inside",wholesome
-"Something with a beautiful message",wholesome
-"A movie the whole family can enjoy",wholesome
-"I need something pure and innocent",wholesome
-"Give me that warm fuzzy feeling",wholesome
-"Something that makes you believe in good",wholesome
-"A story full of love and kindness",wholesome
-"I want to feel warm and fuzzy inside",wholesome
-"I want to be terrified tonight",scared
-"Give me the scariest movie ever",scared
-"I need a good horror film",scared
-"Something that will give me nightmares",scared
-"I want jump scares and terror",scared
-"Show me something truly horrifying",scared
-"I'm in the mood for a ghost story",scared
-"Give me something spine chilling",scared
-"I want to sleep with the lights on",scared
-"Something with monsters and demons",scared
-"A terrifying supernatural thriller",scared
-"I need something that scares me senseless",scared
-"Give me a haunted house movie",scared
-"Pure horror and dread tonight",scared
-"I want to be on the edge of my seat with fear",scared
-"I'm walking on sunshine today",joyful
-"Everything is clicking into place beautifully",joyful
-"I feel like dancing for no reason",joyful
-"My heart is doing backflips",joyful
-"Today is a gift and I'm unwrapping every moment",joyful
-"I'm bubbling over with positive energy",joyful
-"This is the best moment of my life",joyful
-"I feel like a kid on Christmas morning",joyful
-"Nothing can bring me down today",joyful
-"I'm radiating pure happiness",joyful
-"The world looks brighter through my eyes right now",joyful
-"I just won something amazing",joyful
-"My team won and I'm over the moon",joyful
-"I got the promotion I've been waiting for",joyful
-"My favorite person just surprised me",joyful
-"Sitting on the porch watching the sunset",content
-"A quiet morning with coffee and birdsong",content
-"Everything feels still and right",content
-"No drama, no chaos, just peace",content
-"I'm exactly where I need to be",content
-"The world feels soft and gentle today",content
-"A warm blanket and a good book is all I need",content
-"My heart feels full but quiet",content
-"Just breathing and being is enough",content
-"There's nowhere else I'd rather be",content
-"The rain on the roof is soothing my soul",content
-"A perfect lazy Sunday afternoon",content
-"I have no worries right now",content
-"This moment is simple but perfect",content
-"I feel safe and comfortable",content
-"Thinking about the way things used to be",melancholic
-"A rainy day and old memories",melancholic
-"I miss the person I used to be",melancholic
-"Some wounds don't hurt, they just ache quietly",melancholic
-"The world feels a little gray today",melancholic
-"I'm remembering a love that faded",melancholic
-"There's a soft sadness in the air",melancholic
-"I feel like watching a bittersweet movie",melancholic
-"Nothing is wrong, but nothing feels right either",melancholic
-"The past is calling and I can't answer",melancholic
-"I'm letting myself feel the quiet sorrow",melancholic
-"Autumn always makes me feel this way",melancholic
-"I'm holding onto a memory too tightly",melancholic
-"A gentle sadness is washing over me",melancholic
-"I'm saying goodbye to a chapter of my life",melancholic
-"I can't accept that you're gone",grief-stricken
-"The weight of loss is crushing me",grief-stricken
-"Every breath hurts since I lost you",grief-stricken
-"I'm drowning in sorrow",grief-stricken
-"My world ended and no one noticed",grief-stricken
-"I just screamed until my throat gave out",grief-stricken
-"There's a hole in my chest where my heart used to be",grief-stricken
-"I'm not okay, and I won't be for a long time",grief-stricken
-"The tears won't stop and I've given up trying",grief-stricken
-"I feel numb except for the pain",grief-stricken
-"Everything reminds me of what I've lost",grief-stricken
-"I'm grieving in silence",grief-stricken
-"My soul is in mourning",grief-stricken
-"I don't know how to move on from this",grief-stricken
-"The darkness of loss has no end in sight",grief-stricken
-"I'm in a room full of people but I'm invisible",isolated
-"No one speaks my language here",isolated
-"I feel like an alien in my own life",isolated
-"They wouldn't notice if I disappeared",isolated
-"I have 'friends' but no one knows me",isolated
-"I'm wearing a mask so no one sees the real me",isolated
-"The world is moving but I'm standing still",isolated
-"I'm yelling inside but no sound comes out",isolated
-"I feel like I'm watching my life from outside my body",isolated
-"No one gets what I'm going through",isolated
-"I'm trapped in my own head with no exit",isolated
-"Everyone else seems to have the manual for life",isolated
-"I'm a ghost in my own story",isolated
-"There's a wall between me and everyone else",isolated
-"I'm tired of pretending I fit in",isolated
-"I wish you were here right now",yearning
-"My arms feel empty without you",yearning
-"I keep checking my phone for a message that won't come",yearning
-"I want to go back to that place",yearning
-"I'm longing for a different life",yearning
-"My heart aches for something I can't name",yearning
-"I miss the feeling of being held",yearning
-"I wish I could rewind time",yearning
-"I'm desperate for a sign",yearning
-"I want to feel something real",yearning
-"I'm dreaming of a place far away",yearning
-"I long for the simplicity of childhood",yearning
-"I want to be seen and understood",yearning
-"There's an emptiness only one person can fill",yearning
-"I'm waiting for a moment that may never come",yearning
-"I'm seeing red right now",furious
-"How dare they do this to me",furious
-"I'm shaking with rage",furious
-"I want to scream at the top of my lungs",furious
-"This is the last straw, I'm done",furious
-"I've never been this angry in my life",furious
-"I could punch a hole through the wall",furious
-"The betrayal makes my blood boil",furious
-"I'm so mad I can't form words",furious
-"Someone is going to regret this",furious
-"My patience is completely gone",furious
-"I'm filled with nothing but fury",furious
-"This injustice is unacceptable",furious
-"I'm plotting my revenge right now",furious
-"I feel like a volcano about to erupt",furious
-"My chest is tight and I can't breathe",anxious
-"I keep picturing everything going wrong",anxious
-"I'm dreading tomorrow so much",anxious
-"My heart is racing for no reason",anxious
-"I feel like I'm waiting for a disaster",anxious
-"I can't sit still, I'm so on edge",anxious
-"What if I mess everything up",anxious
-"I feel like something bad is about to happen",anxious
-"My thoughts are spiraling out of control",anxious
-"I'm overthinking every single word",anxious
-"I have that pit in my stomach again",anxious
-"I'm terrified of what comes next",anxious
-"My hands are sweating and I feel sick",anxious
-"I need to check everything one more time",anxious
-"The anxiety is eating me alive",anxious
-"I heard a noise downstairs and I'm frozen",fearful
-"I can't shake the feeling I'm being watched",fearful
-"Every shadow looks like a monster",fearful
-"I'm too scared to close my eyes",fearful
-"My heart is pounding out of my chest",fearful
-"I think I'm in real danger",fearful
-"Please don't let anyone find me",fearful
-"I'm hiding and I hope they don't look here",fearful
-"The fear is paralyzing",fearful
-"I'm having a full panic attack",fearful
-"I need to run but my legs won't move",fearful
-"This is my worst nightmare coming true",fearful
-"I feel a cold hand on my shoulder",fearful
-"The suspense is killing me",fearful
-"I'm terrified of what's behind that door",fearful
-"I know things will get better",hopeful
-"There's light at the end of the tunnel",hopeful
-"Tomorrow is a new day with new chances",hopeful
-"I believe in my dreams",hopeful
-"Something good is coming, I can feel it",hopeful
-"The future is bright and I'm ready",hopeful
-"I haven't given up, not yet",hopeful
-"Every setback is a setup for a comeback",hopeful
-"I'm manifesting good things",hopeful
-"My luck is about to change",hopeful
-"I see a silver lining in this cloud",hopeful
-"I have faith in the process",hopeful
-"Things are finally looking up",hopeful
-"I'm excited for what's to come",hopeful
-"Hope is the last thing to die",hopeful
-"I don't care about anything anymore",apathetic
-"Nothing matters, so why try",apathetic
-"I feel completely hollow inside",apathetic
-"I just stared at the wall for an hour",apathetic
-"I don't have the energy to feel",apathetic
-"What's the point of any of this",apathetic
-"I'm just going through the motions",apathetic
-"I felt nothing when I got the news",apathetic
-"My emotions have shut down",apathetic
-"I'm not sad, I'm just... nothing",apathetic
-"I don't want to talk, I don't want to move",apathetic
-"The world could end and I wouldn't blink",apathetic
-"I've run out of tears and feelings",apathetic
-"Everything is gray and flavorless",apathetic
-"I'm emotionally bankrupt",apathetic
-"I can't forgive myself for what I did",guilty
-"The guilt is keeping me up at night",guilty
-"I feel sick when I think about it",guilty
-"I let everyone down, including myself",guilty
-"I'm so ashamed of my actions",guilty
-"I wish I could take it all back",guilty
-"The weight of my mistake is unbearable",guilty
-"I don't deserve to be happy",guilty
-"Everyone is looking at me with disappointment",guilty
-"I'm a bad person and I know it",guilty
-"I keep replaying the moment I messed up",guilty
-"This secret is destroying me",guilty
-"I feel dirty and wrong",guilty
-"I should have known better",guilty
-"The shame is burning my skin",guilty
-"I wish I had what they have",jealous
-"It's not fair that they got it and I didn't",jealous
-"I hate seeing them succeed",jealous
-"Why them and not me",jealous
-"I feel a green monster in my chest",jealous
-"I can't be happy for them, I'm too bitter",jealous
-"I want what she has so badly",jealous
-"He doesn't deserve that life",jealous
-"I'm comparing myself to everyone and losing",jealous
-"Every post they make annoys me",jealous
-"I feel inferior and angry about it",jealous
-"My friend's new relationship is making me jealous",jealous
-"They have the perfect life and I'm struggling",jealous
-"I'm coveting something that isn't mine",jealous
-"Envy is poisoning my thoughts",jealous
-"That is absolutely vile",disgusted
-"I want to scrub my skin after seeing that",disgusted
-"The thought of it makes me nauseous",disgusted
-"I've lost all respect for that person",disgusted
-"The hypocrisy makes me sick",disgusted
-"I'm disgusted by the state of the world",disgusted
-"That behavior is beneath contempt",disgusted
-"I can't even look at it",disgusted
-"The smell alone is making me gag",disgusted
-"I feel contaminated just being near it",disgusted
-"Your actions are despicable",disgusted
-"I'm repulsed by what I just witnessed",disgusted
-"That's morally bankrupt",disgusted
-"I need a shower after that conversation",disgusted
-"Everything about this is gross",disgusted
-"I feel like pulling a harmless prank",playful
-"Let's do something silly and fun",playful
-"I'm in a goofy mood today",playful
-"Life is too serious, I want to laugh",playful
-"Let's make funny faces at each other",playful
-"Let's run through the sprinklers",playful
-"I feel like a little kid again",playful
-"Let's build a pillow fort",playful
-"I'm ready to be ridiculous",playful
-"Nothing matters except having fun right now",playful
-"I want to play a board game and be obnoxious",playful
-"Let's have a dance party for no reason",playful
-"Who cares if we look stupid",playful
-"I'm feeling mischievous",playful
-"Let's put on silly voices",playful
-"I'm locking in on my goal",focused
-"Distractions are gone, it's just me and the task",focused
-"I have a plan and I'm sticking to it",focused
-"Nothing will stop me from achieving this",focused
-"I'm in the zone right now",focused
-"This is my main priority",focused
-"I'm putting my head down and working",focused
-"I can't afford to lose concentration",focused
-"Every action I take is intentional",focused
-"I'm on a mission",focused
-"I will not be swayed",focused
-"Discipline over motivation",focused
-"I'm grinding until I succeed",focused
-"My eyes are on the prize",focused
-"Failure is not an option",focused
-"That was actually pretty funny",amused
-"I'm enjoying this more than I expected",amused
-"A smirk just crossed my face",amused
-"Well played, that got me",amused
-"I'm pleasantly distracted",amused
-"This is holding my attention nicely",amused
-"I chuckled out loud",amused
-"Not bad, I'll keep watching",amused
-"I'm being thoroughly entertained",amused
-"That's clever and witty",amused
-"I like this lighthearted vibe",amused
-"It's fun to just laugh and not think",amused
-"I'm smiling at my screen",amused
-"This is my kind of humor",amused
-"I'm having a good time with this",amused
-"I feel a burst of creativity coming on",inspired
-"My mind is full of ideas right now",inspired
-"I want to paint or write or build something",inspired
-"This is fueling my imagination",inspired
-"I see art in everything today",inspired
-"I need to channel this energy into a project",inspired
-"I'm ready to make something beautiful",inspired
-"My brain is firing on all cylinders",inspired
-"I feel like I can solve any problem",inspired
-"Creativity is flowing through me",inspired
-"I'm seeing the world in colors",inspired
-"This is giving me so much inspiration",inspired
-"I want to start a new hobby tonight",inspired
-"I feel a masterpiece brewing inside me",inspired
-"Let me grab my notebook",inspired
-"I have so much to be thankful for",grateful
-"I'm counting my blessings tonight",grateful
-"I appreciate the small things",grateful
-"My heart is full of thanks",grateful
-"I don't say it enough, but thank you",grateful
-"I'm lucky to have the people I do",grateful
-"Even the hard times taught me something",grateful
-"I'm appreciating my health today",grateful
-"A simple life is a good life",grateful
-"I'm filled with warmth when I think of my friends",grateful
-"I'm grateful for this moment of peace",grateful
-"Things could be worse, and I'm glad they're not",grateful
-"I want to show my appreciation",grateful
-"Thankfulness is washing over me",grateful
-"I'm acknowledging all the good in my life",grateful
-"I'll never forgive them for this",bitter
-"They took everything from me",bitter
-"I hope they get what's coming to them",bitter
-"The anger has turned cold and hard",bitter
-"I'm holding onto this grudge forever",bitter
-"I don't forget betrayal",bitter
-"My heart is turning to stone",bitter
-"I've become cynical because of what happened",bitter
-"I don't trust anyone anymore",bitter
-"They don't deserve my kindness",bitter
-"I'm bitter about how things turned out",bitter
-"I'm nursing a resentment that won't heal",bitter
-"Life cheated me",bitter
-"I have a sour taste in my mouth",bitter
-"I'm done being the nice person",bitter
-"I finished what I started",satisfied
-"That was hard, but I did it",satisfied
-"I feel a deep sense of pride",satisfied
-"Check that off the list",satisfied
-"My hard work paid off",satisfied
-"I nailed it",satisfied
-"The result was worth the effort",satisfied
-"I'm pleased with how this turned out",satisfied
-"I can relax now, my job is done",satisfied
-"Victory tastes sweet",satisfied
-"I proved myself today",satisfied
-"I'm content with my performance",satisfied
-"A job well done feels great",satisfied
-"I earned this rest",satisfied
-"I'm proud of what I built",satisfied
-"I feel like I might break if someone touches me",vulnerable
-"My defenses are completely down",vulnerable
-"I'm feeling soft and exposed",vulnerable
-"I need someone to be gentle with me",vulnerable
-"I'm admitting I'm not okay",vulnerable
-"Please hold me carefully",vulnerable
-"I'm scared to speak because I might cry",vulnerable
-"My heart is an open wound",vulnerable
-"I'm taking off my armor",vulnerable
-"I need a safe space",vulnerable
-"I'm feeling small and fragile",vulnerable
-"Don't yell at me right now",vulnerable
-"I'm sensitive to everything today",vulnerable
-"I'm letting my guard down",vulnerable
-"This is the real, messy me",vulnerable
-"I just fell down a Wikipedia rabbit hole",curious
-"I need to know how that works",curious
-"What's the story behind that?",curious
-"I'm fascinated by the details",curious
-"I want to peek behind the curtain",curious
-"Why does that happen?",curious
-"I'm questioning everything today",curious
-"I want to see the evidence",curious
-"Is there more to this?",curious
-"I need to solve this puzzle",curious
-"My curiosity is piqued",curious
-"I want to learn a new skill",curious
-"How did they do that?",curious
-"I'm drawn to the mysterious",curious
-"I want to understand the root cause",curious
-"This song takes me right back",nostalgic
-"I found an old photo and now I'm emotional",nostalgic
-"They don't make things like they used to",nostalgic
-"I miss the smell of my grandmother's house",nostalgic
-"I wish I could go back just for one day",nostalgic
-"I just won my basketball game",happy
-"My team crushed it on the court tonight",excited
-"We won the championship match",joyful
-"I scored the winning goal",excited
-"Our team took home the trophy",happy
-"Just finished a marathon and I won",accomplished
-"We beat our rivals for the first time",joyful
-"I hit the game-winning shot",excited
-"My soccer team advanced to the finals",happy
-"We won the relay race by one second",excited
-"I just got a gold medal",joyful
-"Our basketball season ended with a win",happy
-"I made the winning point in tennis",excited
-"We came back from behind and won",joyful
-"The final score was in our favor",satisfied
-"I just won a singles match",proud
-"Our volleyball team is undefeated",excited
-"I scored a hat trick today",joyful
-"We won the tournament against all odds",happy
-"The buzzer beater went in",excited
-"I got a promotion at work",happy
-"I just graduated from college",joyful
-"I finished my novel",accomplished
-"I ran my first 5k",proud
-"I finally paid off my debt",satisfied
-"I completed a difficult project",accomplished
-"I passed my driving test",happy
-"I got accepted into my dream school",joyful
-"I won an award at work",excited
-"I achieved my monthly goal",satisfied
-"I just bought my first house",happy
-"I finished a 30-day challenge",proud
-"I learned a new language",accomplished
-"I hit my savings target",satisfied
-"I started my own business",excited
-"I got a raise after hard work",happy
-"I completed a coding bootcamp",proud
-"I won a scholarship",joyful
-"I finally asked for that promotion and got it",excited
-"I achieved something I've been working toward for years",accomplished
-"I got the job I interviewed for",happy
-"My test results came back perfect",relieved
-"I just found out I'm going to be an aunt",joyful
-"My flight got upgraded to first class",excited
-"I won a contest I forgot I entered",surprised
-"My application got approved",relieved
-"I just got a letter saying I got the grant",happy
-"My favorite band is coming to town",excited
-"I found out I have a long weekend",joyful
-"My package arrived early",satisfied
-"I got tickets to the sold-out show",excited
-"My landlord said I can get a pet",happy
-"I just got great feedback from my boss",proud
-"My partner surprised me with dinner",romantic
-"I won a gift card at work",happy
-"I just won a ranked match in Valorant",excited
-"I hit Diamond rank in League of Legends",proud
-"My squad got a chicken dinner in PUBG",joyful
-"I finally beat that impossible boss",satisfied
-"I won a 1v5 clutch",excited
-"I completed the game on hard mode",accomplished
-"I got a pentakill",excited
-"I reached number one on the leaderboard",joyful
-"I won my first esports tournament",excited
-"I pulled a legendary character",happy
-"I aced my final exam",happy
-"I got an A on my paper",proud
-"I finished my thesis",accomplished
-"I made the dean's list",joyful
-"I got a perfect score on the test",excited
-"I submitted my assignment early",satisfied
-"I understood a difficult concept",smart
-"I helped my friend pass the class",helpful
-"I got a scholarship for next year",happy
-"I presented my research successfully",proud
-"She said yes to our date",romantic
-"He proposed and I said yes",joyful
-"We made up after a fight",relieved
-"My partner surprised me with flowers",loved
-"I finally told them how I feel",romantic
-"We celebrated our anniversary",happy
-"My long-distance partner is visiting",excited
-"I made a new close friend",grateful
-"My family showed up to support me",touched
-"I reconnected with an old friend",nostalgic
-"I finally cleaned my room",satisfied
-"I cooked a meal and it tasted good",proud
-"I woke up early today",accomplished
-"I finished my to-do list",satisfied
-"I went to the gym",proud
-"I saved money instead of spending",smart
-"I called my mom",warm
-"I fixed something myself",capable
-"I found something I lost",relieved
-"I made someone smile today",kind
-"A stranger paid for my coffee",grateful
-"I found money on the ground",lucky
-"My favorite snack was on sale",happy
-"The weather turned beautiful",content
-"I got a refund I wasn't expecting",pleasant
-"My car passed inspection easily",relieved
-"I got the last one in stock",lucky
-"Someone gave me a compliment",flattered
-"The line moved super fast",satisfied
-"I got a free upgrade",excited
-"I won a debate competition",proud
-"My team won the trivia night",happy
-"I came first in a chess tournament",satisfied
-"I won a cooking contest",excited
-"My design won first place",proud
-"I beat my personal record",accomplished
-"I won a spelling bee",joyful
-"Our dodgeball team is champions",excited
-"I won a raffle",lucky
-"I got the highest score in the class",proud
-"I finally stood up for myself",empowered
-"I left a toxic situation",strong
-"I completed rehab",hopeful
-"I forgave someone who hurt me",peaceful
-"I asked for help when I needed it",brave
-"I apologized and meant it",humble
-"I broke a bad habit",proud
-"I faced my fear",courageous
-"I started therapy",hopeful
-"I set a boundary and stuck to it",strong
-"The basketball game ended",neutral
-"I watched a movie about sports",neutral
-"My team played today",neutral
-"The match is tomorrow",neutral
-"I'm going to practice",neutral
-"I bought a new basketball",neutral
-"I met a player from the team",neutral
-"The score was close",neutral
-"We have a rematch next week",neutral
-"I'm wearing my jersey",neutral
-"I lost my basketball game",sad
-"We didn't make the playoffs",disappointed
-"I missed the winning shot",frustrated
-"My team lost by one point",gutted
-"I got benched during the game",embarrassed
-"We tried hard but lost",disappointed
-"The referee made a bad call",angry
-"I sprained my ankle during the match",frustrated
-"We got eliminated from the tournament",sad
-"I played terribly today",ashamed
-"The other team crushed us",defeated
-"I'm injured and can't play",frustrated
-"My coach was disappointed in me",guilty
-"We lost our winning streak",sad
-"I missed practice and got benched",regretful
-"I just won my tennis match",happy
-"Our basketball team won the semifinals",excited
-"I hit a home run and we won",joyful
-"The final buzzer sounded and we were ahead",excited
-"I won my wrestling match by pinfall",proud
-"Our swim team broke a record",accomplished
-"I got a hole in one playing golf",excited
-"I won a boxing match by knockout",happy
-"Our hockey team won in overtime",joyful
-"I completed a triathlon",proud
-"I won my badminton game",satisfied
-"Our rugby team is going to nationals",excited
-"I got a strike in the final frame",happy
-"I won a poker tournament",lucky
-"I beat my dad at chess for the first time",proud
-"won basketball match",happy
-"won basketball game",joyful
-"my basketball team won",excited
-"I won the basketball championship",proud
-"victory in basketball today",satisfied
-"basketball win feels amazing",happy
-"we won the basketball finals",joyful
-"I scored the winning basket",excited
-"basketball tournament champions",proud
-"our team took the win",happy
+I'm so happy today everything is wonderful,happy
+Feeling great and full of joy,happy
+What an amazing day I love life,happy
+I feel cheerful and blessed,happy
+Today was the best day ever so much fun,happy
+I'm in such a good mood right now,happy
+Everything is going perfectly I'm thrilled,happy
+Laughing so hard right now this is hilarious,happy
+Can't stop smiling feeling fantastic,happy
+Life is beautiful and I'm grateful,happy
+Just got great news I'm ecstatic,happy
+Having the time of my life,happy
+So much happiness in my heart today,happy
+Feeling on top of the world,happy
+Pure bliss and sunshine vibes,happy
+I feel so down and depressed,sad
+Everything feels hopeless and empty,sad
+I can't stop crying today,sad
+My heart is broken into pieces,sad
+Nothing makes me happy anymore,sad
+Feeling really blue and miserable,sad
+I just want to curl up and disappear,sad
+The grief is overwhelming me,sad
+Why does everything have to be so painful,sad
+I feel like giving up on everything,sad
+So much sorrow in my heart,sad
+Tears keep falling I can't help it,sad
+Feeling really depressed and lost,sad
+Nothing is going right in my life,sad
+My soul aches with sadness,sad
+I feel so alone no one understands me,lonely
+Sitting by myself again tonight,lonely
+I wish I had someone to talk to,lonely
+Nobody cares about me at all,lonely
+The loneliness is crushing me,lonely
+I feel so disconnected from everyone,lonely
+Spending another night alone,lonely
+I miss having someone close to me,lonely
+Feeling abandoned and forgotten,lonely
+No one ever reaches out to me,lonely
+I'm surrounded by people but feel alone,lonely
+Empty house empty heart,lonely
+Wish I had a friend right now,lonely
+The silence is deafening tonight,lonely
+I feel invisible to everyone around me,lonely
+I'm in love and everything is beautiful,romantic
+My heart skips a beat when I think of you,romantic
+I want to watch something about love,romantic
+Feeling all the butterflies and romance,romantic
+I need a sweet love story tonight,romantic
+Missing my sweetheart so much,romantic
+Love is in the air tonight,romantic
+Dreaming about the perfect date,romantic
+My heart is full of passion,romantic
+I want something about soulmates,romantic
+Feeling lovey dovey and affectionate,romantic
+Romance is what I need right now,romantic
+Thinking about my crush all day,romantic
+Something with a beautiful love story,romantic
+I believe in true love tonight,romantic
+I'm so pumped and excited right now,excited
+Can't contain my excitement,excited
+Something thrilling and action packed please,excited
+I need an adrenaline rush,excited
+Give me something explosive and intense,excited
+I'm fired up and ready for anything,excited
+So hyped right now need something epic,excited
+Feeling electrified and energetic,excited
+I want something that gets my heart racing,excited
+Ready for an adventure and excitement,excited
+I'm buzzing with energy right now,excited
+Need something fast paced and wild,excited
+I want non stop action and thrills,excited
+Adrenaline is pumping through my veins,excited
+Something that will blow my mind,excited
+I just want to relax and unwind,relaxed
+Feeling calm and peaceful tonight,relaxed
+Something light and easy going please,relaxed
+I need to decompress after a long day,relaxed
+Just vibing and feeling zen,relaxed
+I want something soothing and gentle,relaxed
+Feeling super chill right now,relaxed
+Let me just lay back and enjoy,relaxed
+Nothing heavy just pure comfort,relaxed
+I'm in a lazy cozy mood,relaxed
+Something mellow and laid back,relaxed
+Time to kick back and relax,relaxed
+Peaceful evening needs a peaceful movie,relaxed
+Feeling tranquil and at ease,relaxed
+Just want comfort and calm,relaxed
+I'm so stressed out I can't breathe,stressed
+Work is killing me I need a break,stressed
+Everything is overwhelming right now,stressed
+I'm so anxious about everything,stressed
+Need something to take my mind off stress,stressed
+I feel burned out and exhausted,stressed
+So much pressure on my shoulders,stressed
+Can't handle all this stress anymore,stressed
+My brain is fried from work,stressed
+I need to escape from all this tension,stressed
+Feeling frazzled and on edge,stressed
+Too many deadlines too little time,stressed
+My nerves are completely shot,stressed
+I just need to forget about my problems,stressed
+Everything is too much right now,stressed
+I want something dark and twisted,dark
+Give me a psychological thriller,dark
+I'm in the mood for something sinister,dark
+Something disturbing and intense,dark
+Show me the darkest movie you have,dark
+I want to explore the shadows,dark
+Feeling a bit morbid tonight,dark
+Something gritty and raw please,dark
+I need something that goes deep and dark,dark
+Show me the darker side of humanity,dark
+I want a noir thriller or dark drama,dark
+Something with a creepy atmosphere,dark
+Give me mind games and manipulation,dark
+I crave something eerie and unsettling,dark
+The darker the better tonight,dark
+I need a good cry give me something emotional,emotional
+My heart needs to feel something deep,emotional
+I want a tear jerker that moves me,emotional
+Something that will make me feel deeply,emotional
+I need to process my emotions tonight,emotional
+Give me something sentimental and touching,emotional
+I want to feel all the feelings,emotional
+A deeply moving story about life,emotional
+Something heartfelt and poignant,emotional
+I need an emotional journey right now,emotional
+Give me a movie that makes me sob,emotional
+I want something that touches my soul,emotional
+Feeling vulnerable and want something real,emotional
+A story that will leave me thinking,emotional
+Something beautiful and deeply emotional,emotional
+I need something that bends my mind,mind-bending
+Give me a movie like Inception,mind-bending
+I want a reality breaking experience,mind-bending
+Something with a huge plot twist,mind-bending
+Make my brain hurt with something complex,mind-bending
+I want to question reality,mind-bending
+Give me a philosophical thought experiment,mind-bending
+Something trippy and surreal,mind-bending
+I want my mind completely blown,mind-bending
+Show me something I won't understand first time,mind-bending
+I need a cerebral puzzle of a movie,mind-bending
+Something that challenges my perception,mind-bending
+Give me time travel and paradoxes,mind-bending
+A movie that plays with your head,mind-bending
+I want something intellectually stimulating,mind-bending
+I want to learn something new,curious
+Show me an amazing documentary,curious
+I'm curious about the world,curious
+Something that expands my knowledge,curious
+I want to discover hidden truths,curious
+Give me a fascinating true story,curious
+I need something thought provoking,curious
+Show me mysteries of the universe,curious
+I'm interested in science and discovery,curious
+Something that makes me think and wonder,curious
+I want to explore the unknown,curious
+Give me a good whodunit mystery,curious
+Something intriguing and full of secrets,curious
+I love investigative stories,curious
+Feed my curiosity with something smart,curious
+I'm feeling really nostalgic tonight,nostalgic
+Take me back to the good old days,nostalgic
+I miss my childhood so much,nostalgic
+Something that reminds me of simpler times,nostalgic
+I want a classic movie from the past,nostalgic
+Remembering the good times makes me smile,nostalgic
+Give me that retro vintage feeling,nostalgic
+I want to relive old memories,nostalgic
+Something that feels like home,nostalgic
+Take me on a trip down memory lane,nostalgic
+I miss how things used to be,nostalgic
+Something with that throwback warmth,nostalgic
+Reminiscing about better days,nostalgic
+A timeless classic would be perfect,nostalgic
+Feeling sentimental about the past,nostalgic
+I need motivation and inspiration,motivated
+Something that makes me want to conquer the world,motivated
+I want a story about overcoming obstacles,motivated
+Give me an underdog success story,motivated
+I need to feel empowered right now,motivated
+Show me a story of determination,motivated
+Something about achieving dreams,motivated
+I want to feel like I can do anything,motivated
+Give me a story of triumph and glory,motivated
+I need a push to keep going,motivated
+Something about never giving up,motivated
+I want to be inspired to chase my goals,motivated
+A movie about rising from the ashes,motivated
+Show me the power of perseverance,motivated
+I need fuel for my ambition,motivated
+I want an epic adventure,adventurous
+Take me on a wild journey,adventurous
+I need to explore new worlds,adventurous
+Something with quests and exploration,adventurous
+Give me a grand adventure story,adventurous
+I want to travel the world through film,adventurous
+Something daring and bold,adventurous
+I crave expedition and discovery,adventurous
+Take me somewhere I've never been,adventurous
+An epic quest with brave heroes,adventurous
+I want to feel the thrill of exploration,adventurous
+Something with breathtaking landscapes,adventurous
+Give me pirates treasure and high seas,adventurous
+I need a grand journey tonight,adventurous
+Adventure is calling my name,adventurous
+I want something heartwarming and sweet,wholesome
+Give me a feel good family movie,wholesome
+Something cute and uplifting,wholesome
+I need pure comfort and warmth,wholesome
+A sweet story about kindness,wholesome
+Something that restores my faith in humanity,wholesome
+Give me a gentle heartwarming tale,wholesome
+I want to feel cozy and happy inside,wholesome
+Something with a beautiful message,wholesome
+A movie the whole family can enjoy,wholesome
+I need something pure and innocent,wholesome
+Give me that warm fuzzy feeling,wholesome
+Something that makes you believe in good,wholesome
+A story full of love and kindness,wholesome
+I want to feel warm and fuzzy inside,wholesome
+I want to be terrified tonight,scared
+Give me the scariest movie ever,scared
+I need a good horror film,scared
+Something that will give me nightmares,scared
+I want jump scares and terror,scared
+Show me something truly horrifying,scared
+I'm in the mood for a ghost story,scared
+Give me something spine chilling,scared
+I want to sleep with the lights on,scared
+Something with monsters and demons,scared
+A terrifying supernatural thriller,scared
+I need something that scares me senseless,scared
+Give me a haunted house movie,scared
+Pure horror and dread tonight,scared
+I want to be on the edge of my seat with fear,scared
+I'm walking on sunshine today,happy
+Everything is clicking into place beautifully,happy
+I feel like dancing for no reason,happy
+My heart is doing backflips,happy
+Today is a gift and I'm unwrapping every moment,happy
+I'm bubbling over with positive energy,happy
+This is the best moment of my life,happy
+I feel like a kid on Christmas morning,happy
+Nothing can bring me down today,happy
+I'm radiating pure happiness,happy
+The world looks brighter through my eyes right now,happy
+I just won something amazing,happy
+My team won and I'm over the moon,happy
+I got the promotion I've been waiting for,happy
+My favorite person just surprised me,happy
+Sitting on the porch watching the sunset,relaxed
+A quiet morning with coffee and birdsong,relaxed
+Everything feels still and right,relaxed
+"No drama, no chaos, just peace",relaxed
+I'm exactly where I need to be,relaxed
+The world feels soft and gentle today,relaxed
+A warm blanket and a good book is all I need,relaxed
+My heart feels full but quiet,relaxed
+Just breathing and being is enough,relaxed
+There's nowhere else I'd rather be,relaxed
+The rain on the roof is soothing my soul,relaxed
+A perfect lazy Sunday afternoon,relaxed
+I have no worries right now,relaxed
+This moment is simple but perfect,relaxed
+I feel safe and comfortable,relaxed
+Thinking about the way things used to be,nostalgic
+A rainy day and old memories,nostalgic
+I miss the person I used to be,nostalgic
+"Some wounds don't hurt, they just ache quietly",nostalgic
+The world feels a little gray today,nostalgic
+I'm remembering a love that faded,nostalgic
+There's a soft sadness in the air,nostalgic
+I feel like watching a bittersweet movie,nostalgic
+"Nothing is wrong, but nothing feels right either",nostalgic
+The past is calling and I can't answer,nostalgic
+I'm letting myself feel the quiet sorrow,nostalgic
+Autumn always makes me feel this way,nostalgic
+I'm holding onto a memory too tightly,nostalgic
+A gentle sadness is washing over me,nostalgic
+I'm saying goodbye to a chapter of my life,nostalgic
+I can't accept that you're gone,sad
+The weight of loss is crushing me,sad
+Every breath hurts since I lost you,sad
+I'm drowning in sorrow,sad
+My world ended and no one noticed,sad
+I just screamed until my throat gave out,sad
+There's a hole in my chest where my heart used to be,sad
+"I'm not okay, and I won't be for a long time",sad
+The tears won't stop and I've given up trying,sad
+I feel numb except for the pain,sad
+Everything reminds me of what I've lost,sad
+I'm grieving in silence,sad
+My soul is in mourning,sad
+I don't know how to move on from this,sad
+The darkness of loss has no end in sight,sad
+I'm in a room full of people but I'm invisible,lonely
+No one speaks my language here,lonely
+I feel like an alien in my own life,lonely
+They wouldn't notice if I disappeared,lonely
+I have 'friends' but no one knows me,lonely
+I'm wearing a mask so no one sees the real me,lonely
+The world is moving but I'm standing still,lonely
+I'm yelling inside but no sound comes out,lonely
+I feel like I'm watching my life from outside my body,lonely
+No one gets what I'm going through,lonely
+I'm trapped in my own head with no exit,lonely
+Everyone else seems to have the manual for life,lonely
+I'm a ghost in my own story,lonely
+There's a wall between me and everyone else,lonely
+I'm tired of pretending I fit in,lonely
+I wish you were here right now,emotional
+My arms feel empty without you,emotional
+I keep checking my phone for a message that won't come,emotional
+I want to go back to that place,emotional
+I'm longing for a different life,emotional
+My heart aches for something I can't name,emotional
+I miss the feeling of being held,emotional
+I wish I could rewind time,emotional
+I'm desperate for a sign,emotional
+I want to feel something real,emotional
+I'm dreaming of a place far away,emotional
+I long for the simplicity of childhood,emotional
+I want to be seen and understood,emotional
+There's an emptiness only one person can fill,emotional
+I'm waiting for a moment that may never come,emotional
+I'm seeing red right now,dark
+How dare they do this to me,dark
+I'm shaking with rage,dark
+I want to scream at the top of my lungs,dark
+"This is the last straw, I'm done",dark
+I've never been this angry in my life,dark
+I could punch a hole through the wall,dark
+The betrayal makes my blood boil,dark
+I'm so mad I can't form words,dark
+Someone is going to regret this,dark
+My patience is completely gone,dark
+I'm filled with nothing but fury,dark
+This injustice is unacceptable,dark
+I'm plotting my revenge right now,dark
+I feel like a volcano about to erupt,dark
+My chest is tight and I can't breathe,stressed
+I keep picturing everything going wrong,stressed
+I'm dreading tomorrow so much,stressed
+My heart is racing for no reason,stressed
+I feel like I'm waiting for a disaster,stressed
+"I can't sit still, I'm so on edge",stressed
+What if I mess everything up,stressed
+I feel like something bad is about to happen,stressed
+My thoughts are spiraling out of control,stressed
+I'm overthinking every single word,stressed
+I have that pit in my stomach again,stressed
+I'm terrified of what comes next,stressed
+My hands are sweating and I feel sick,stressed
+I need to check everything one more time,stressed
+The anxiety is eating me alive,stressed
+I heard a noise downstairs and I'm frozen,scared
+I can't shake the feeling I'm being watched,scared
+Every shadow looks like a monster,scared
+I'm too scared to close my eyes,scared
+My heart is pounding out of my chest,scared
+I think I'm in real danger,scared
+Please don't let anyone find me,scared
+I'm hiding and I hope they don't look here,scared
+The fear is paralyzing,scared
+I'm having a full panic attack,scared
+I need to run but my legs won't move,scared
+This is my worst nightmare coming true,scared
+I feel a cold hand on my shoulder,scared
+The suspense is killing me,scared
+I'm terrified of what's behind that door,scared
+I know things will get better,motivated
+There's light at the end of the tunnel,motivated
+Tomorrow is a new day with new chances,motivated
+I believe in my dreams,motivated
+"Something good is coming, I can feel it",motivated
+The future is bright and I'm ready,motivated
+"I haven't given up, not yet",motivated
+Every setback is a setup for a comeback,motivated
+I'm manifesting good things,motivated
+My luck is about to change,motivated
+I see a silver lining in this cloud,motivated
+I have faith in the process,motivated
+Things are finally looking up,motivated
+I'm excited for what's to come,motivated
+Hope is the last thing to die,motivated
+I don't care about anything anymore,sad
+"Nothing matters, so why try",sad
+I feel completely hollow inside,sad
+I just stared at the wall for an hour,sad
+I don't have the energy to feel,sad
+What's the point of any of this,sad
+I'm just going through the motions,sad
+I felt nothing when I got the news,sad
+My emotions have shut down,sad
+"I'm not sad, I'm just... nothing",sad
+"I don't want to talk, I don't want to move",sad
+The world could end and I wouldn't blink,sad
+I've run out of tears and feelings,sad
+Everything is gray and flavorless,sad
+I'm emotionally bankrupt,sad
+I can't forgive myself for what I did,emotional
+The guilt is keeping me up at night,emotional
+I feel sick when I think about it,emotional
+"I let everyone down, including myself",emotional
+I'm so ashamed of my actions,emotional
+I wish I could take it all back,emotional
+The weight of my mistake is unbearable,emotional
+I don't deserve to be happy,emotional
+Everyone is looking at me with disappointment,emotional
+I'm a bad person and I know it,emotional
+I keep replaying the moment I messed up,emotional
+This secret is destroying me,emotional
+I feel dirty and wrong,emotional
+I should have known better,emotional
+The shame is burning my skin,emotional
+I wish I had what they have,dark
+It's not fair that they got it and I didn't,dark
+I hate seeing them succeed,dark
+Why them and not me,dark
+I feel a green monster in my chest,dark
+"I can't be happy for them, I'm too bitter",dark
+I want what she has so badly,dark
+He doesn't deserve that life,dark
+I'm comparing myself to everyone and losing,dark
+Every post they make annoys me,dark
+I feel inferior and angry about it,dark
+My friend's new relationship is making me jealous,dark
+They have the perfect life and I'm struggling,dark
+I'm coveting something that isn't mine,dark
+Envy is poisoning my thoughts,dark
+That is absolutely vile,dark
+I want to scrub my skin after seeing that,dark
+The thought of it makes me nauseous,dark
+I've lost all respect for that person,dark
+The hypocrisy makes me sick,dark
+I'm disgusted by the state of the world,dark
+That behavior is beneath contempt,dark
+I can't even look at it,dark
+The smell alone is making me gag,dark
+I feel contaminated just being near it,dark
+Your actions are despicable,dark
+I'm repulsed by what I just witnessed,dark
+That's morally bankrupt,dark
+I need a shower after that conversation,dark
+Everything about this is gross,dark
+I feel like pulling a harmless prank,wholesome
+Let's do something silly and fun,wholesome
+I'm in a goofy mood today,wholesome
+"Life is too serious, I want to laugh",wholesome
+Let's make funny faces at each other,wholesome
+Let's run through the sprinklers,wholesome
+I feel like a little kid again,wholesome
+Let's build a pillow fort,wholesome
+I'm ready to be ridiculous,wholesome
+Nothing matters except having fun right now,wholesome
+I want to play a board game and be obnoxious,wholesome
+Let's have a dance party for no reason,wholesome
+Who cares if we look stupid,wholesome
+I'm feeling mischievous,wholesome
+Let's put on silly voices,wholesome
+I'm locking in on my goal,motivated
+"Distractions are gone, it's just me and the task",motivated
+I have a plan and I'm sticking to it,motivated
+Nothing will stop me from achieving this,motivated
+I'm in the zone right now,motivated
+This is my main priority,motivated
+I'm putting my head down and working,motivated
+I can't afford to lose concentration,motivated
+Every action I take is intentional,motivated
+I'm on a mission,motivated
+I will not be swayed,motivated
+Discipline over motivation,motivated
+I'm grinding until I succeed,motivated
+My eyes are on the prize,motivated
+Failure is not an option,motivated
+That was actually pretty funny,happy
+I'm enjoying this more than I expected,happy
+A smirk just crossed my face,happy
+"Well played, that got me",happy
+I'm pleasantly distracted,happy
+This is holding my attention nicely,happy
+I chuckled out loud,happy
+"Not bad, I'll keep watching",happy
+I'm being thoroughly entertained,happy
+That's clever and witty,happy
+I like this lighthearted vibe,happy
+It's fun to just laugh and not think,happy
+I'm smiling at my screen,happy
+This is my kind of humor,happy
+I'm having a good time with this,happy
+I feel a burst of creativity coming on,motivated
+My mind is full of ideas right now,motivated
+I want to paint or write or build something,motivated
+This is fueling my imagination,motivated
+I see art in everything today,motivated
+I need to channel this energy into a project,motivated
+I'm ready to make something beautiful,motivated
+My brain is firing on all cylinders,motivated
+I feel like I can solve any problem,motivated
+Creativity is flowing through me,motivated
+I'm seeing the world in colors,motivated
+This is giving me so much inspiration,motivated
+I want to start a new hobby tonight,motivated
+I feel a masterpiece brewing inside me,motivated
+Let me grab my notebook,motivated
+I have so much to be thankful for,wholesome
+I'm counting my blessings tonight,wholesome
+I appreciate the small things,wholesome
+My heart is full of thanks,wholesome
+"I don't say it enough, but thank you",wholesome
+I'm lucky to have the people I do,wholesome
+Even the hard times taught me something,wholesome
+I'm appreciating my health today,wholesome
+A simple life is a good life,wholesome
+I'm filled with warmth when I think of my friends,wholesome
+I'm grateful for this moment of peace,wholesome
+"Things could be worse, and I'm glad they're not",wholesome
+I want to show my appreciation,wholesome
+Thankfulness is washing over me,wholesome
+I'm acknowledging all the good in my life,wholesome
+I'll never forgive them for this,dark
+They took everything from me,dark
+I hope they get what's coming to them,dark
+The anger has turned cold and hard,dark
+I'm holding onto this grudge forever,dark
+I don't forget betrayal,dark
+My heart is turning to stone,dark
+I've become cynical because of what happened,dark
+I don't trust anyone anymore,dark
+They don't deserve my kindness,dark
+I'm bitter about how things turned out,dark
+I'm nursing a resentment that won't heal,dark
+Life cheated me,dark
+I have a sour taste in my mouth,dark
+I'm done being the nice person,dark
+I finished what I started,relaxed
+"That was hard, but I did it",relaxed
+I feel a deep sense of pride,relaxed
+Check that off the list,relaxed
+My hard work paid off,relaxed
+I nailed it,relaxed
+The result was worth the effort,relaxed
+I'm pleased with how this turned out,relaxed
+"I can relax now, my job is done",relaxed
+Victory tastes sweet,relaxed
+I proved myself today,relaxed
+I'm content with my performance,relaxed
+A job well done feels great,relaxed
+I earned this rest,relaxed
+I'm proud of what I built,relaxed
+I feel like I might break if someone touches me,emotional
+My defenses are completely down,emotional
+I'm feeling soft and exposed,emotional
+I need someone to be gentle with me,emotional
+I'm admitting I'm not okay,emotional
+Please hold me carefully,emotional
+I'm scared to speak because I might cry,emotional
+My heart is an open wound,emotional
+I'm taking off my armor,emotional
+I need a safe space,emotional
+I'm feeling small and fragile,emotional
+Don't yell at me right now,emotional
+I'm sensitive to everything today,emotional
+I'm letting my guard down,emotional
+"This is the real, messy me",emotional
+I just fell down a Wikipedia rabbit hole,curious
+I need to know how that works,curious
+What's the story behind that?,curious
+I'm fascinated by the details,curious
+I want to peek behind the curtain,curious
+Why does that happen?,curious
+I'm questioning everything today,curious
+I want to see the evidence,curious
+Is there more to this?,curious
+I need to solve this puzzle,curious
+My curiosity is piqued,curious
+I want to learn a new skill,curious
+How did they do that?,curious
+I'm drawn to the mysterious,curious
+I want to understand the root cause,curious
+This song takes me right back,nostalgic
+I found an old photo and now I'm emotional,nostalgic
+They don't make things like they used to,nostalgic
+I miss the smell of my grandmother's house,nostalgic
+I wish I could go back just for one day,nostalgic
+I just won my basketball game,happy
+My team crushed it on the court tonight,excited
+We won the championship match,happy
+I scored the winning goal,excited
+Our team took home the trophy,happy
+Just finished a marathon and I won,motivated
+We beat our rivals for the first time,happy
+I hit the game-winning shot,excited
+My soccer team advanced to the finals,happy
+We won the relay race by one second,excited
+I just got a gold medal,happy
+Our basketball season ended with a win,happy
+I made the winning point in tennis,excited
+We came back from behind and won,happy
+The final score was in our favor,relaxed
+I just won a singles match,motivated
+Our volleyball team is undefeated,excited
+I scored a hat trick today,happy
+We won the tournament against all odds,happy
+The buzzer beater went in,excited
+I got a promotion at work,happy
+I just graduated from college,happy
+I finished my novel,motivated
+I ran my first 5k,motivated
+I finally paid off my debt,relaxed
+I completed a difficult project,motivated
+I passed my driving test,happy
+I got accepted into my dream school,happy
+I won an award at work,excited
+I achieved my monthly goal,relaxed
+I just bought my first house,happy
+I finished a 30-day challenge,motivated
+I learned a new language,motivated
+I hit my savings target,relaxed
+I started my own business,excited
+I got a raise after hard work,happy
+I completed a coding bootcamp,motivated
+I won a scholarship,happy
+I finally asked for that promotion and got it,excited
+I achieved something I've been working toward for years,motivated
+I got the job I interviewed for,happy
+My test results came back perfect,relaxed
+I just found out I'm going to be an aunt,happy
+My flight got upgraded to first class,excited
+I won a contest I forgot I entered,excited
+My application got approved,relaxed
+I just got a letter saying I got the grant,happy
+My favorite band is coming to town,excited
+I found out I have a long weekend,happy
+My package arrived early,relaxed
+I got tickets to the sold-out show,excited
+My landlord said I can get a pet,happy
+I just got great feedback from my boss,motivated
+My partner surprised me with dinner,romantic
+I won a gift card at work,happy
+I just won a ranked match in Valorant,excited
+I hit Diamond rank in League of Legends,motivated
+My squad got a chicken dinner in PUBG,happy
+I finally beat that impossible boss,relaxed
+I won a 1v5 clutch,excited
+I completed the game on hard mode,motivated
+I got a pentakill,excited
+I reached number one on the leaderboard,happy
+I won my first esports tournament,excited
+I pulled a legendary character,happy
+I aced my final exam,happy
+I got an A on my paper,motivated
+I finished my thesis,motivated
+I made the dean's list,happy
+I got a perfect score on the test,excited
+I submitted my assignment early,relaxed
+I understood a difficult concept,curious
+I helped my friend pass the class,wholesome
+I got a scholarship for next year,happy
+I presented my research successfully,motivated
+She said yes to our date,romantic
+He proposed and I said yes,happy
+We made up after a fight,relaxed
+My partner surprised me with flowers,romantic
+I finally told them how I feel,romantic
+We celebrated our anniversary,happy
+My long-distance partner is visiting,excited
+I made a new close friend,wholesome
+My family showed up to support me,emotional
+I reconnected with an old friend,nostalgic
+I finally cleaned my room,relaxed
+I cooked a meal and it tasted good,motivated
+I woke up early today,motivated
+I finished my to-do list,relaxed
+I went to the gym,motivated
+I saved money instead of spending,curious
+I called my mom,wholesome
+I fixed something myself,motivated
+I found something I lost,relaxed
+I made someone smile today,wholesome
+A stranger paid for my coffee,wholesome
+I found money on the ground,happy
+My favorite snack was on sale,happy
+The weather turned beautiful,relaxed
+I got a refund I wasn't expecting,relaxed
+My car passed inspection easily,relaxed
+I got the last one in stock,happy
+Someone gave me a compliment,happy
+The line moved super fast,relaxed
+I got a free upgrade,excited
+I won a debate competition,motivated
+My team won the trivia night,happy
+I came first in a chess tournament,relaxed
+I won a cooking contest,excited
+My design won first place,motivated
+I beat my personal record,motivated
+I won a spelling bee,happy
+Our dodgeball team is champions,excited
+I won a raffle,happy
+I got the highest score in the class,motivated
+I finally stood up for myself,motivated
+I left a toxic situation,motivated
+I completed rehab,motivated
+I asked for help when I needed it,adventurous
+I apologized and meant it,wholesome
+I broke a bad habit,motivated
+I faced my fear,adventurous
+I started therapy,motivated
+I set a boundary and stuck to it,motivated
+The basketball game ended,curious
+I watched a movie about sports,curious
+My team played today,curious
+The match is tomorrow,curious
+I'm going to practice,curious
+I bought a new basketball,curious
+I met a player from the team,curious
+The score was close,curious
+We have a rematch next week,curious
+I'm wearing my jersey,curious
+I lost my basketball game,sad
+We didn't make the playoffs,sad
+I missed the winning shot,stressed
+My team lost by one point,sad
+I got benched during the game,emotional
+We tried hard but lost,sad
+The referee made a bad call,dark
+I sprained my ankle during the match,stressed
+We got eliminated from the tournament,sad
+I played terribly today,emotional
+The other team crushed us,sad
+I'm injured and can't play,stressed
+My coach was disappointed in me,emotional
+We lost our winning streak,sad
+I missed practice and got benched,emotional
+I just won my tennis match,happy
+Our basketball team won the semifinals,excited
+I hit a home run and we won,happy
+The final buzzer sounded and we were ahead,excited
+I won my wrestling match by pinfall,motivated
+Our swim team broke a record,motivated
+I got a hole in one playing golf,excited
+I won a boxing match by knockout,happy
+Our hockey team won in overtime,happy
+I completed a triathlon,motivated
+I won my badminton game,relaxed
+Our rugby team is going to nationals,excited
+I got a strike in the final frame,happy
+I won a poker tournament,happy
+I beat my dad at chess for the first time,motivated
+won basketball match,happy
+won basketball game,happy
+my basketball team won,excited
+I won the basketball championship,motivated
+victory in basketball today,relaxed
+basketball win feels amazing,happy
+we won the basketball finals,happy
+I scored the winning basket,excited
+basketball tournament champions,motivated
+our team took the win,happy

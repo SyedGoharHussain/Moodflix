@@ -8,41 +8,41 @@ import random
 from services import tmdb_service
 
 MOOD_GENRE_WEIGHTS = {
-    "happy": {"Comedy": 0.9, "Music": 0.7, "Animation": 0.6, "Family": 0.5},
-    "sad": {"Drama": 0.9, "Romance": 0.6, "History": 0.3},
-    "lonely": {"Drama": 0.8, "Romance": 0.7, "Family": 0.6},
-    "romantic": {"Romance": 0.95, "Comedy": 0.6, "Drama": 0.5},
-    "excited": {"Action": 0.9, "Adventure": 0.8, "Science Fiction": 0.7},
-    "relaxed": {"Comedy": 0.8, "Animation": 0.7, "Family": 0.6, "Documentary": 0.5},
-    "stressed": {"Comedy": 0.9, "Animation": 0.7, "Music": 0.6},
-    "dark": {"Thriller": 0.9, "Horror": 0.8, "Crime": 0.7, "Mystery": 0.6},
-    "emotional": {"Drama": 0.9, "Romance": 0.8, "War": 0.5},
+    "happy":        {"Comedy": 0.9, "Music": 0.7, "Animation": 0.6, "Family": 0.5},
+    "sad":          {"Drama": 0.9, "Romance": 0.6, "History": 0.3},
+    "lonely":       {"Drama": 0.8, "Romance": 0.7, "Family": 0.6},
+    "romantic":     {"Romance": 0.95, "Comedy": 0.6, "Drama": 0.5},
+    "excited":      {"Action": 0.9, "Adventure": 0.8, "Science Fiction": 0.7},
+    "relaxed":      {"Comedy": 0.8, "Animation": 0.7, "Family": 0.6, "Documentary": 0.5},
+    "stressed":     {"Comedy": 0.9, "Animation": 0.7, "Music": 0.6},
+    "dark":         {"Thriller": 0.9, "Horror": 0.8, "Crime": 0.7, "Mystery": 0.6},
+    "emotional":    {"Drama": 0.9, "Romance": 0.8, "War": 0.5},
     "mind-bending": {"Science Fiction": 0.9, "Mystery": 0.8, "Thriller": 0.7},
-    "curious": {"Documentary": 0.9, "Mystery": 0.7, "Science Fiction": 0.6},
-    "nostalgic": {"Family": 0.8, "Animation": 0.7, "Comedy": 0.6},
-    "motivated": {"Drama": 0.8, "Adventure": 0.7, "History": 0.6},
-    "adventurous": {"Adventure": 0.9, "Action": 0.8, "Science Fiction": 0.7},
-    "wholesome": {"Family": 0.9, "Animation": 0.8, "Comedy": 0.7},
-    "scared": {"Horror": 0.95, "Thriller": 0.7, "Mystery": 0.5},
+    "curious":      {"Documentary": 0.9, "Mystery": 0.7, "Science Fiction": 0.6, "History": 0.5},
+    "nostalgic":    {"Family": 0.8, "Animation": 0.7, "Comedy": 0.6, "History": 0.5},
+    "motivated":    {"Drama": 0.8, "Adventure": 0.7, "History": 0.6, "War": 0.4},
+    "adventurous":  {"Adventure": 0.9, "Action": 0.8, "Science Fiction": 0.7, "Fantasy": 0.6},
+    "wholesome":    {"Family": 0.9, "Animation": 0.8, "Comedy": 0.7, "Music": 0.4},
+    "scared":       {"Horror": 0.95, "Thriller": 0.7, "Mystery": 0.5},
 }
 
 MOOD_DESCRIPTIONS = {
-    "happy": "uplifting and feel-good",
-    "sad": "deeply moving and cathartic",
-    "lonely": "warm, comforting, and connection-themed",
-    "romantic": "love-filled and passionate",
-    "excited": "high-energy and adrenaline-pumping",
-    "relaxed": "calm and light-hearted",
-    "stressed": "lighthearted for stress relief",
-    "dark": "intense and psychologically gripping",
-    "emotional": "emotionally rich and touching",
+    "happy":        "uplifting and feel-good",
+    "sad":          "deeply moving and cathartic",
+    "lonely":       "warm, comforting, and connection-themed",
+    "romantic":     "love-filled and passionate",
+    "excited":      "high-energy and adrenaline-pumping",
+    "relaxed":      "calm and light-hearted",
+    "stressed":     "lighthearted for stress relief",
+    "dark":         "intense and psychologically gripping",
+    "emotional":    "emotionally rich and touching",
     "mind-bending": "mind-bending and thought-provoking",
-    "curious": "fascinating and knowledge-expanding",
-    "nostalgic": "classic and memory-evoking",
-    "motivated": "inspirational and empowering",
-    "adventurous": "thrilling adventures and epic journeys",
-    "wholesome": "heartwarming and family-friendly",
-    "scared": "terrifying and spine-chilling",
+    "curious":      "fascinating and knowledge-expanding",
+    "nostalgic":    "classic and memory-evoking",
+    "motivated":    "inspirational and empowering",
+    "adventurous":  "thrilling adventures and epic journeys",
+    "wholesome":    "heartwarming and family-friendly",
+    "scared":       "terrifying and spine-chilling",
 }
 
 GENRE_ID_TO_NAME = {
@@ -52,6 +52,10 @@ GENRE_ID_TO_NAME = {
     9648: "Mystery", 10749: "Romance", 878: "Science Fiction",
     53: "Thriller", 10752: "War", 37: "Western",
 }
+
+# Minimum mood-match score for a movie to be included in results.
+# Movies below this threshold are pure noise and skew recommendations.
+MIN_MOOD_MATCH = 0.12
 
 
 def _mood_match_score(movie, mood):
@@ -113,30 +117,58 @@ def generate_explanation(movie, mood, scores):
 
 
 def get_recommendations(mood, user_id=None, page=1, limit=20):
-    movies = tmdb_service.get_movies_for_mood(mood, page=page).get("results", [])
-    if page == 1:
-        seen = {m["tmdb_id"] for m in movies}
-        for m in tmdb_service.get_popular(page=1).get("results", []):
+    mood_lower = mood.lower()
+
+    # ── 1. Fetch mood-specific movies across two pages for variety ──────────
+    pool_page_a = tmdb_service.get_movies_for_mood(mood_lower, page=page).get("results", [])
+    pool_page_b = tmdb_service.get_movies_for_mood(mood_lower, page=page + 1).get("results", [])
+    movies = pool_page_a + pool_page_b
+
+    seen = {m["tmdb_id"] for m in movies}
+
+    # ── 2. Only pad with popular movies when the mood pool is thin ──────────
+    if len(movies) < 15:
+        pop_page = random.randint(1, 3)
+        for m in tmdb_service.get_popular(page=pop_page).get("results", []):
             if m["tmdb_id"] not in seen:
                 movies.append(m)
                 seen.add(m["tmdb_id"])
 
-    # Shuffle the initial pool slightly to introduce variety
+    # Light shuffle to avoid deterministic ordering before scoring
     random.shuffle(movies)
 
+    # ── 3. Score every movie ─────────────────────────────────────────────────
     scored = []
     for m in movies:
-        ms = _mood_match_score(m, mood)
+        ms = _mood_match_score(m, mood_lower)
+
+        # Hard filter — skip movies that are completely irrelevant to the mood
+        if ms < MIN_MOOD_MATCH:
+            continue
+
         cs = _content_score(m)
         cb = _collab_score(m)
-        final = round(0.4 * cb + 0.3 * cs + 0.3 * ms, 3)
+
+        # Mood-match drives 55 % of the final score (was 30 %)
+        # This ensures different moods truly surface different films
+        final = round(0.55 * ms + 0.25 * cb + 0.20 * cs, 3)
+
         scores = {"mood_match": ms, "content": cs, "collaborative": cb, "final": final}
-        expl = generate_explanation(m, mood, scores)
-        scored.append({**m, "mood_match_pct": expl["mood_match_pct"],
-                       "ai_explanation": expl, "recommendation_score": final})
+        expl = generate_explanation(m, mood_lower, scores)
+        scored.append({
+            **m,
+            "mood_match_pct": expl["mood_match_pct"],
+            "ai_explanation": expl,
+            "recommendation_score": final,
+        })
 
     scored.sort(key=lambda x: x["recommendation_score"], reverse=True)
-    return {"mood": mood, "results": scored[:limit], "total": len(scored), "page": page}
+    return {
+        "mood": mood_lower,
+        "results": scored[:limit],
+        "total": len(scored),
+        "page": page,
+    }
 
 
 def get_because_you_feel(mood):
@@ -146,5 +178,6 @@ def get_because_you_feel(mood):
     return {
         "title": f"Because You Feel {mood.capitalize()}",
         "description": f"We picked these {desc} titles just for you",
-        "mood": mood, "results": picks,
+        "mood": mood,
+        "results": picks,
     }
