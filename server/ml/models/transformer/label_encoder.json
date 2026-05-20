@@ -1,0 +1,38 @@
+{
+  "id_to_label": {
+    "0": "happy",
+    "1": "sad",
+    "2": "lonely",
+    "3": "romantic",
+    "4": "excited",
+    "5": "relaxed",
+    "6": "stressed",
+    "7": "dark",
+    "8": "emotional",
+    "9": "mind-bending",
+    "10": "curious",
+    "11": "nostalgic",
+    "12": "motivated",
+    "13": "adventurous",
+    "14": "wholesome",
+    "15": "scared"
+  },
+  "label_to_id": {
+    "happy": 0,
+    "sad": 1,
+    "lonely": 2,
+    "romantic": 3,
+    "excited": 4,
+    "relaxed": 5,
+    "stressed": 6,
+    "dark": 7,
+    "emotional": 8,
+    "mind-bending": 9,
+    "curious": 10,
+    "nostalgic": 11,
+    "motivated": 12,
+    "adventurous": 13,
+    "wholesome": 14,
+    "scared": 15
+  }
+}
