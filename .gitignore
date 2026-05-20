@@ -46,3 +46,7 @@ Thumbs.db
 
 # Sensitive files
 server/firebase_credentials.json
+firebase_credentials.json
+
+# Large ML artifacts (regenerate with server/ml/train_transformer.py)
+server/ml/models/transformer/model.safetensors
