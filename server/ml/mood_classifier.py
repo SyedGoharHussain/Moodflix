@@ -100,53 +100,53 @@ class MoodClassifier:
         keyword_map = {
             "happy": ["happy", "great", "amazing", "wonderful", "joy", "cheerful",
                        "fantastic", "awesome", "good mood", "feeling good", "blessed",
-                       "delighted", "ecstatic", "thrilled", "content", "pleased"],
+                       "delighted", "ecstatic", "thrilled", "content", "pleased", "smile", "laugh", "glad"],
             "sad": ["sad", "depressed", "down", "unhappy", "miserable", "heartbroken",
                      "grief", "sorrow", "crying", "tears", "gloomy", "melancholy",
-                     "blue", "upset", "devastated", "hopeless"],
+                     "blue", "upset", "devastated", "hopeless", "lost", "fail", "failed", "lose"],
             "lonely": ["lonely", "alone", "isolated", "abandoned", "solitary",
                         "lonesome", "by myself", "no one", "miss someone",
-                        "empty", "disconnected", "friendless"],
+                        "empty", "disconnected", "friendless", "solo"],
             "romantic": ["romantic", "love", "crush", "date", "valentine",
                           "passionate", "affection", "intimate", "sweetheart",
-                          "soulmate", "butterflies", "heart"],
+                          "soulmate", "butterflies", "heart", "kiss", "couple"],
             "excited": ["excited", "thrilled", "pumped", "can't wait",
                          "hyped", "energetic", "exhilarated", "fired up",
-                         "stoked", "eager", "electrified"],
+                         "stoked", "eager", "electrified", "win", "won", "victory", "match", "game", "champion", "sports"],
             "relaxed": ["relaxed", "calm", "peaceful", "chill", "serene",
                          "tranquil", "zen", "lazy", "cozy", "comfortable",
-                         "mellow", "unwind", "laid back"],
+                         "mellow", "unwind", "laid back", "rest", "sleepy", "tired"],
             "stressed": ["stressed", "anxious", "overwhelmed", "pressure",
                           "worried", "tense", "nervous", "burnout",
-                          "exhausted", "overworked", "frazzled", "tired"],
+                          "exhausted", "overworked", "frazzled", "panic", "deadline", "work", "school"],
             "dark": ["dark", "twisted", "sinister", "disturbing", "creepy",
                       "macabre", "eerie", "shadowy", "grim", "morbid",
-                      "intense", "brutal", "raw"],
+                      "intense", "brutal", "raw", "evil", "villain"],
             "emotional": ["emotional", "feeling", "deep", "touching",
                            "moving", "crying", "sentimental", "poignant",
-                           "heartfelt", "tear-jerker", "vulnerable"],
+                           "heartfelt", "tear-jerker", "vulnerable", "beautiful"],
             "mind-bending": ["mind-bending", "mind-blowing", "trippy",
                               "inception", "matrix", "philosophical",
                               "paradox", "surreal", "abstract",
-                              "thought-provoking", "complex", "twist"],
+                              "thought-provoking", "complex", "twist", "confused", "weird"],
             "curious": ["curious", "interested", "learn", "discover",
                          "explore", "mystery", "investigat", "wonder",
-                         "fascinated", "intrigued", "questioning"],
+                         "fascinated", "intrigued", "questioning", "how", "what", "why"],
             "nostalgic": ["nostalgic", "remember", "childhood", "memories",
                            "old times", "retro", "vintage", "throwback",
-                           "classic", "good old days", "reminisce"],
+                           "classic", "good old days", "reminisce", "past"],
             "motivated": ["motivated", "inspired", "determined", "driven",
                            "ambitious", "goals", "achieve", "success",
-                           "persever", "hustle", "grind", "empower"],
+                           "persever", "hustle", "grind", "empower", "workout", "gym", "study"],
             "adventurous": ["adventurous", "adventure", "explore", "travel",
                              "journey", "quest", "wild", "thrill",
-                             "daring", "bold", "expedition"],
+                             "daring", "bold", "expedition", "hike", "nature"],
             "wholesome": ["wholesome", "heartwarming", "sweet", "cute",
                            "family", "comfort", "cozy", "gentle",
-                           "uplifting", "feel-good", "warm"],
+                           "uplifting", "feel-good", "warm", "dog", "cat", "pet"],
             "scared": ["scared", "terrified", "horror", "fright",
                         "spooky", "creepy", "jump scare", "nightmare",
-                        "haunted", "petrified", "fearful"],
+                        "haunted", "petrified", "fearful", "afraid"],
         }
 
         scores = {}
@@ -265,6 +265,11 @@ def train_model(data_path: str = None):
 
     print(f"[Training] {len(df)} samples, {df['mood'].nunique()} classes")
     print(f"[Training] Class distribution:\n{df['mood'].value_counts()}")
+
+    # Filter out classes with only 1 sample to avoid stratify errors
+    class_counts = df['mood'].value_counts()
+    valid_classes = class_counts[class_counts > 1].index
+    df = df[df['mood'].isin(valid_classes)]
 
     X_train, X_test, y_train, y_test = train_test_split(
         df["text"], df["mood"], test_size=0.2, random_state=42, stratify=df["mood"]

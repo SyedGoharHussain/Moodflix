@@ -4,6 +4,7 @@ Combines content-based, mood-based, and collaborative filtering.
 """
 
 import math
+import random
 from services import tmdb_service
 
 MOOD_GENRE_WEIGHTS = {
@@ -119,6 +120,9 @@ def get_recommendations(mood, user_id=None, page=1, limit=20):
             if m["tmdb_id"] not in seen:
                 movies.append(m)
                 seen.add(m["tmdb_id"])
+
+    # Shuffle the initial pool slightly to introduce variety
+    random.shuffle(movies)
 
     scored = []
     for m in movies:
