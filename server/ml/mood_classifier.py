@@ -100,53 +100,93 @@ class MoodClassifier:
         keyword_map = {
             "happy": ["happy", "great", "amazing", "wonderful", "joy", "cheerful",
                        "fantastic", "awesome", "good mood", "feeling good", "blessed",
-                       "delighted", "ecstatic", "thrilled", "content", "pleased", "smile", "laugh", "glad"],
+                       "delighted", "ecstatic", "thrilled", "content", "pleased",
+                       "smile", "laugh", "glad", "excited about life", "on top of the world",
+                       "feeling great", "best day", "love life"],
             "sad": ["sad", "depressed", "down", "unhappy", "miserable", "heartbroken",
                      "grief", "sorrow", "crying", "tears", "gloomy", "melancholy",
-                     "blue", "upset", "devastated", "hopeless", "lost", "fail", "failed", "lose"],
+                     "blue", "upset", "devastated", "hopeless", "lost", "fail", "failed",
+                     "lose", "rejected", "rejection", "heartbreak", "broke up", "breakup",
+                     "dumped", "left me", "she left", "he left", "they left", "split up",
+                     "relationship ended", "painful", "hurt", "broken", "not okay",
+                     "falling apart", "crushed", "shattered", "gutted", "grieving",
+                     "mourning", "loss", "missed", "disappoint", "regret"],
             "lonely": ["lonely", "alone", "isolated", "abandoned", "solitary",
                         "lonesome", "by myself", "no one", "miss someone",
-                        "empty", "disconnected", "friendless", "solo"],
+                        "empty", "disconnected", "friendless", "solo",
+                        "single", "no friends", "nobody cares", "all alone",
+                        "missing her", "missing him", "miss my", "without her",
+                        "without him", "wish i had", "no company", "invisible"],
             "romantic": ["romantic", "love", "crush", "date", "valentine",
                           "passionate", "affection", "intimate", "sweetheart",
-                          "soulmate", "butterflies", "heart", "kiss", "couple"],
-            "excited": ["excited", "thrilled", "pumped", "can't wait",
+                          "soulmate", "butterflies", "kiss", "couple",
+                          "girlfriend", "boyfriend", "partner", "dating",
+                          "in love", "fell in love", "romance", "lover",
+                          "anniversary", "proposal", "marriage", "wedding"],
+            "excited": ["excited", "pumped", "can't wait",
                          "hyped", "energetic", "exhilarated", "fired up",
-                         "stoked", "eager", "electrified", "win", "won", "victory", "match", "game", "champion", "sports"],
+                         "stoked", "eager", "electrified", "win", "won",
+                         "victory", "champion", "adrenaline", "epic", "action",
+                         "explosive", "intense action", "fast paced", "thrill"],
             "relaxed": ["relaxed", "calm", "peaceful", "chill", "serene",
                          "tranquil", "zen", "lazy", "cozy", "comfortable",
-                         "mellow", "unwind", "laid back", "rest", "sleepy", "tired"],
+                         "mellow", "unwind", "laid back", "rest", "sleepy",
+                         "tired", "easygoing", "light movie", "nothing heavy",
+                         "kick back", "slow down", "decompress"],
             "stressed": ["stressed", "anxious", "overwhelmed", "pressure",
                           "worried", "tense", "nervous", "burnout",
-                          "exhausted", "overworked", "frazzled", "panic", "deadline", "work", "school"],
-            "dark": ["dark", "twisted", "sinister", "disturbing", "creepy",
-                      "macabre", "eerie", "shadowy", "grim", "morbid",
-                      "intense", "brutal", "raw", "evil", "villain"],
-            "emotional": ["emotional", "feeling", "deep", "touching",
-                           "moving", "crying", "sentimental", "poignant",
-                           "heartfelt", "tear-jerker", "vulnerable", "beautiful"],
+                          "exhausted", "overworked", "frazzled", "panic",
+                          "deadline", "work", "school", "too much", "can't cope",
+                          "on edge", "brain fried", "need escape", "distract"],
+            "dark": ["dark", "twisted", "sinister", "disturbing",
+                      "macabre", "eerie", "grim", "morbid",
+                      "intense", "brutal", "raw", "evil", "villain",
+                      "crime", "thriller", "psychological", "noir",
+                      "revenge", "corrupt", "bleak", "violent", "gritty"],
+            "emotional": ["emotional", "feeling deeply", "deep", "touching",
+                           "moving", "cry", "sob", "weep", "sentimental", "poignant",
+                           "heartfelt", "tear jerker", "vulnerable", "beautiful story",
+                           "feel something", "process emotions", "heavy heart",
+                           "need a cry", "something real", "deeply human"],
             "mind-bending": ["mind-bending", "mind-blowing", "trippy",
                               "inception", "matrix", "philosophical",
                               "paradox", "surreal", "abstract",
-                              "thought-provoking", "complex", "twist", "confused", "weird"],
+                              "thought-provoking", "complex", "twist",
+                              "confused", "weird", "reality", "time travel",
+                              "dimension", "simulation", "question everything"],
             "curious": ["curious", "interested", "learn", "discover",
                          "explore", "mystery", "investigat", "wonder",
-                         "fascinated", "intrigued", "questioning", "how", "what", "why"],
+                         "fascinated", "intrigued", "questioning",
+                         "documentary", "true story", "how does", "why does",
+                         "science", "history", "facts", "knowledge", "educate"],
             "nostalgic": ["nostalgic", "remember", "childhood", "memories",
                            "old times", "retro", "vintage", "throwback",
-                           "classic", "good old days", "reminisce", "past"],
-            "motivated": ["motivated", "inspired", "determined", "driven",
-                           "ambitious", "goals", "achieve", "success",
-                           "persever", "hustle", "grind", "empower", "workout", "gym", "study"],
+                           "classic", "good old days", "reminisce", "past",
+                           "simpler times", "back then", "used to", "miss the old",
+                           "90s", "80s", "70s", "grew up", "tradition"],
+            "motivated": ["motivated", "motivation", "inspired", "inspiration",
+                           "determined", "driven", "ambitious", "goals", "achieve",
+                           "success", "persever", "hustle", "grind", "empower",
+                           "workout", "gym", "study", "overcome", "underdog",
+                           "never give up", "keep going", "keep pushing",
+                           "dont give up", "don't give up", "push myself",
+                           "conquer", "champion", "rise up", "bounce back",
+                           "need to be inspired", "need inspiration"],
             "adventurous": ["adventurous", "adventure", "explore", "travel",
-                             "journey", "quest", "wild", "thrill",
-                             "daring", "bold", "expedition", "hike", "nature"],
+                             "journey", "quest", "wild",
+                             "daring", "bold", "expedition", "hike", "nature",
+                             "discover new worlds", "epic quest", "treasure",
+                             "explore the unknown", "grand journey", "new places"],
             "wholesome": ["wholesome", "heartwarming", "sweet", "cute",
-                           "family", "comfort", "cozy", "gentle",
-                           "uplifting", "feel-good", "warm", "dog", "cat", "pet"],
+                           "family", "comfort", "gentle",
+                           "uplifting", "feel-good", "warm", "dog", "cat", "pet",
+                           "kindness", "innocent", "pure", "fuzzy", "good vibes",
+                           "faith in humanity", "cozy movie", "feel good"],
             "scared": ["scared", "terrified", "horror", "fright",
                         "spooky", "creepy", "jump scare", "nightmare",
-                        "haunted", "petrified", "fearful", "afraid"],
+                        "haunted", "petrified", "fearful", "afraid",
+                        "ghost", "monster", "demon", "scary", "terror",
+                        "chilling", "spine", "dark night", "supernatural"],
         }
 
         scores = {}
@@ -212,32 +252,36 @@ class MoodClassifier:
                 "source": "default",
             }
 
-        # 3. Try ML model
+        # 3. Try ML model — only trust it when confidence is high enough
         if self.pipeline is not None:
             try:
                 prediction = self.pipeline.predict([cleaned])[0]
                 probabilities = self.pipeline.predict_proba([cleaned])[0]
                 classes = self.pipeline.classes_
 
-                # Build emotion breakdown (top 5)
-                prob_pairs = sorted(
-                    zip(classes, probabilities),
-                    key=lambda x: x[1],
-                    reverse=True,
-                )
-                breakdown = {m: round(float(p), 3) for m, p in prob_pairs[:5]}
                 confidence = round(float(max(probabilities)), 2)
 
-                # If emoji was also detected, boost confidence if they agree
-                if emoji_result and emoji_result["detected_mood"] == prediction:
-                    confidence = min(0.99, confidence + 0.1)
+                # If the ML model is uncertain, fall through to keyword fallback.
+                # This prevents bad guesses like "excited" for sad inputs.
+                if confidence >= 0.52:
+                    prob_pairs = sorted(
+                        zip(classes, probabilities),
+                        key=lambda x: x[1],
+                        reverse=True,
+                    )
+                    breakdown = {m: round(float(p), 3) for m, p in prob_pairs[:5]}
 
-                return {
-                    "detected_mood": prediction,
-                    "confidence": confidence,
-                    "emotion_breakdown": breakdown,
-                    "source": "ml_model",
-                }
+                    # Boost confidence when emoji agrees with ML
+                    if emoji_result and emoji_result["detected_mood"] == prediction:
+                        confidence = min(0.99, confidence + 0.1)
+
+                    return {
+                        "detected_mood": prediction,
+                        "confidence": confidence,
+                        "emotion_breakdown": breakdown,
+                        "source": "ml_model",
+                    }
+                # else: confidence too low — fall through to keyword fallback
             except Exception as e:
                 print(f"[MoodClassifier] Prediction error: {e}")
 
