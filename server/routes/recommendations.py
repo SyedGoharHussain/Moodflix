@@ -29,6 +29,16 @@ def analyze_mood():
     classifier = get_classifier()
     result = classifier.predict(text)
 
+    # LIME explanation — only attempt for model-backed predictions on non-trivial text.
+    if result.get("source") in {"ml_model", "ensemble", "transformer"} and len(text.split()) >= 4:
+        try:
+            from ml.lime_explainer import explain as lime_explain
+            lime = lime_explain(text)
+            if lime:
+                result["lime_explanation"] = lime
+        except Exception as e:
+            print(f"[analyze_mood] LIME skipped: {e}")
+
     # Log mood if user is authenticated
     try:
         verify_jwt_in_request(optional=True)
