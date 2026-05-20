@@ -30,12 +30,12 @@ export default function Search() {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-      className="min-h-screen pt-24 pb-20 max-w-7xl mx-auto px-4 sm:px-6">
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-        <h1 className="font-display text-4xl text-parchment mb-2">
-          {query ? <>Results for "<span className="text-rust-pale">{query}</span>"</> : 'Search'}
+      className="min-h-screen pt-24 pb-20 max-w-7xl mx-auto px-4 sm:px-6 bg-bg-base">
+      <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
+        <h1 className="font-display text-4xl text-ink font-extrabold tracking-tight mb-2">
+          {query ? <>Results for "<span className="text-accent-cyan">{query}</span>"</> : 'Search'}
         </h1>
-        {results.length > 0 && <p className="text-ash text-sm">{results.length} titles found</p>}
+        {results.length > 0 && <p className="text-ink-dim text-sm font-mono">{results.length} titles found</p>}
       </motion.div>
 
       {loading ? (
@@ -48,8 +48,8 @@ export default function Search() {
         </div>
       ) : query ? (
         <div className="text-center py-20">
-          <FiFilm size={48} className="mx-auto text-stone-light mb-4" />
-          <p className="text-ash font-body">No results found for "{query}"</p>
+          <FiFilm size={48} className="mx-auto text-ink-mute mb-3" />
+          <p className="text-ink-dim font-body">No results found for "{query}"</p>
         </div>
       ) : null}
     </motion.div>
