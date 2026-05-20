@@ -8,12 +8,11 @@ import os
 import re
 import string
 import joblib
-import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.metrics import classification_report
 
 MODEL_DIR = os.path.join(os.path.dirname(__file__), "models")
 MODEL_PATH = os.path.join(MODEL_DIR, "mood_classifier.pkl")
@@ -321,22 +320,3 @@ def get_classifier() -> MoodClassifier:
         _classifier_instance = MoodClassifier()
     return _classifier_instance
 
-
-if __name__ == "__main__":
-    result = train_model()
-    if result:
-        print(f"\nTraining complete: {result}")
-
-        # Test predictions
-        classifier = MoodClassifier()
-        test_inputs = [
-            "I feel so lonely tonight",
-            "Need something mind-blowing",
-            "I'm stressed after work",
-            "Give me something wholesome and heartwarming",
-            "I want a scary movie",
-            "Feeling nostalgic about my childhood",
-        ]
-        for text in test_inputs:
-            pred = classifier.predict(text)
-            print(f"\n'{text}' → {pred['detected_mood']} ({pred['confidence']:.0%})")

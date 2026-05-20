@@ -6,8 +6,7 @@ GET /api/user/profile, POST /api/user/save, POST /api/user/rate, GET /api/user/h
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from services.firebase_service import (
-    create_document, get_document, update_document,
-    query_collection, delete_document, get_document_by_field,
+    create_document, query_collection, delete_document,
 )
 from services.auth_service import get_user_profile, update_user_profile
 from datetime import datetime

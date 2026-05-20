@@ -4,7 +4,6 @@ Handles all interactions with The Movie Database API.
 """
 
 import requests
-from functools import lru_cache
 from config import get_config
 
 config = get_config()
