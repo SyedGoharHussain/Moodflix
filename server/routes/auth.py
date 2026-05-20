@@ -7,9 +7,23 @@ from flask import Blueprint, request, jsonify
 from flask_jwt_extended import (
     create_access_token, jwt_required, get_jwt_identity
 )
-from services.auth_service import register_user, login_user, get_user_profile
+from services.auth_service import register_user, login_user, get_user_profile, google_login
 
 auth_bp = Blueprint("auth", __name__, url_prefix="/api/auth")
+
+@auth_bp.route("/google", methods=["POST"])
+def google_auth():
+    data = request.get_json()
+    if not data or "token" not in data:
+        return jsonify({"error": "Google token is required"}), 400
+        
+    result = google_login(data["token"])
+    if "error" in result:
+        return jsonify({"error": result["error"]}), result["status"]
+
+    user = result["user"]
+    token = create_access_token(identity=user["id"])
+    return jsonify({"user": user, "token": token}), 200
 
 
 @auth_bp.route("/register", methods=["POST"])

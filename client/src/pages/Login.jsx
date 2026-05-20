@@ -5,6 +5,8 @@ import { FiMail, FiLock, FiFilm } from 'react-icons/fi'
 import { FcGoogle } from 'react-icons/fc'
 import { authAPI } from '../services/api.js'
 import { useAuthStore } from '../store/index.js'
+import { auth, googleProvider } from '../services/firebase.js'
+import { signInWithPopup } from 'firebase/auth'
 import logo from '../assets/logo.png'
 
 export default function Login() {
@@ -25,7 +27,22 @@ export default function Login() {
       navigate('/dashboard')
     } catch (err) {
       setError(err.response?.data?.error || 'Login failed')
-    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleGoogleLogin = async () => {
+    try {
+      setError('')
+      setLoading(true)
+      const result = await signInWithPopup(auth, googleProvider)
+      const token = await result.user.getIdToken()
+      
+      const { data } = await authAPI.google(token)
+      setAuth(data.user, data.token)
+      navigate('/dashboard')
+    } catch (err) {
+      setError(err.response?.data?.error || err.message || 'Google login failed')
       setLoading(false)
     }
   }
@@ -80,7 +97,7 @@ export default function Login() {
             <div className="flex-1 h-px bg-stone-light/20"></div>
           </div>
 
-          <button type="button" className="mt-6 w-full py-3 bg-stone-mid border border-stone-light/20 rounded-xl font-body text-sm text-parchment hover:bg-stone-light/10 transition-all flex items-center justify-center gap-3">
+          <button type="button" onClick={handleGoogleLogin} disabled={loading} className="mt-6 w-full py-3 bg-stone-mid border border-stone-light/20 rounded-xl font-body text-sm text-parchment hover:bg-stone-light/10 transition-all flex items-center justify-center gap-3 disabled:opacity-50">
             <FcGoogle size={20} />
             Continue with Google
           </button>
