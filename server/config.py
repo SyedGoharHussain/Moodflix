@@ -7,7 +7,8 @@ import os
 from datetime import timedelta
 from dotenv import load_dotenv
 
-load_dotenv()
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 
 class Config:
@@ -26,8 +27,11 @@ class Config:
 
     # Firebase
     FIREBASE_CREDENTIALS_PATH = os.getenv(
-        "FIREBASE_CREDENTIALS_PATH", "./firebase-credentials.json"
+        "FIREBASE_CREDENTIALS_PATH", os.path.join(BASE_DIR, "firebase_credentials.json")
     )
+    # If the env contains a relative path like './firebase_credentials.json', resolve it
+    if not os.path.isabs(FIREBASE_CREDENTIALS_PATH):
+        FIREBASE_CREDENTIALS_PATH = os.path.join(BASE_DIR, FIREBASE_CREDENTIALS_PATH)
 
     # TMDB
     TMDB_API_KEY = os.getenv("TMDB_API_KEY", "")
