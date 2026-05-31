@@ -70,7 +70,7 @@ def explain(text: str, num_features: int = 8, num_samples: int = 500) -> dict | 
         # Normalize weights to [-1, 1] for easier UI rendering
         max_abs = max((abs(w) for _, w in pairs), default=1.0) or 1.0
         words = [
-            {"word": w, "weight": round(weight / max_abs, 3)}
+            {"word": str(w), "weight": round(float(weight) / max_abs, 3)}
             for w, weight in pairs
         ]
         return {
