@@ -162,7 +162,7 @@ export default function MoodInput({ onMoodDetected }) {
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => analyzeMood(mood)}
-              className="flex items-center gap-2 px-3 py-2 rounded-full bg-bg-card border border-line text-ink-dim hover:text-ink hover:border-accent-cyan/50 hover:bg-bg-hover transition-colors"
+              className="mood-chip flex items-center gap-2 px-3 py-2 rounded-full bg-bg-card border border-line text-ink-dim hover:text-ink transition-colors"
             >
               <Icon size={14} />
               <span className="text-xs font-medium">{label}</span>
