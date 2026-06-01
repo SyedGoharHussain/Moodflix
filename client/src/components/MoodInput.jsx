@@ -27,6 +27,41 @@ const MOOD_ITEMS = [
   { icon: FiShield,         mood: 'scared',       label: 'Scared' },
 ]
 
+// Quick mood → icon lookup so the result card can show the matching glyph.
+const MOOD_ICON = Object.fromEntries(MOOD_ITEMS.map(m => [m.mood, m.icon]))
+
+// Circular confidence gauge — replaces the old thin transparent bar.
+function ConfidenceRing({ value }) {
+  const pct = Math.round((value || 0) * 100)
+  const r = 30
+  const circ = 2 * Math.PI * r
+  return (
+    <div className="relative w-[88px] h-[88px] shrink-0">
+      <svg viewBox="0 0 80 80" className="w-full h-full -rotate-90">
+        <defs>
+          <linearGradient id="confGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#00d4ff" />
+            <stop offset="100%" stopColor="#7c5cff" />
+          </linearGradient>
+        </defs>
+        <circle cx="40" cy="40" r={r} fill="none" stroke="#1f1f1f" strokeWidth="7" />
+        <motion.circle
+          cx="40" cy="40" r={r} fill="none"
+          stroke="url(#confGrad)" strokeWidth="7" strokeLinecap="round"
+          strokeDasharray={circ}
+          initial={{ strokeDashoffset: circ }}
+          animate={{ strokeDashoffset: circ * (1 - (value || 0)) }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+        />
+      </svg>
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <span className="font-mono text-xl font-bold text-ink leading-none">{pct}<span className="text-sm text-ink-dim">%</span></span>
+        <span className="text-[7px] uppercase tracking-wider text-ink-mute mt-0.5">confidence</span>
+      </div>
+    </div>
+  )
+}
+
 function HighlightedText({ text, lime }) {
   if (!lime?.words?.length) return <span className="text-ink-dim">{text}</span>
   // Build a map of token -> weight (lowercased)
@@ -142,65 +177,66 @@ export default function MoodInput({ onMoodDetected }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            className="surface p-6"
+            className="surface-elevated overflow-hidden text-left"
           >
-            <div className="flex items-center justify-between mb-5">
-              <div>
-                <p className="text-ink-mute text-[10px] uppercase tracking-widest mb-1">Detected Mood</p>
-                <h3 className="font-display text-3xl text-ink capitalize tracking-tight">{result.detected_mood}</h3>
-              </div>
-              <div className="text-right">
-                <p className="text-ink-mute text-[10px] uppercase tracking-widest mb-1">Confidence</p>
-                <p className="font-mono text-2xl text-accent-cyan">{Math.round(result.confidence * 100)}%</p>
-              </div>
-            </div>
+            {/* Mood-colored top accent so the card reads as intentional, not empty */}
+            <div className="h-1 w-full bg-gradient-to-r from-accent-cyan via-accent-mood to-accent-red" />
 
-            <div className="w-full h-1.5 bg-bg-hover rounded-full overflow-hidden mb-5">
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: `${result.confidence * 100}%` }}
-                transition={{ duration: 0.9, ease: 'easeOut' }}
-                className="h-full bg-gradient-to-r from-accent-cyan to-accent-mood rounded-full"
-              />
-            </div>
-
-            {result.emotion_breakdown && Object.keys(result.emotion_breakdown).length > 0 && (
-              <div className="space-y-2 mb-5">
-                <p className="text-ink-mute text-[10px] uppercase tracking-widest">Emotional Spectrum</p>
-                {Object.entries(result.emotion_breakdown).slice(0, 4).map(([emotion, score]) => (
-                  <div key={emotion} className="flex items-center gap-3">
-                    <span className="text-xs text-ink-dim w-28 capitalize">{emotion}</span>
-                    <div className="flex-1 h-1 bg-bg-hover rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: `${score * 100}%` }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="h-full bg-accent-cyan/70 rounded-full"
-                      />
-                    </div>
-                    <span className="text-xs font-mono text-ink-dim w-10 text-right">{Math.round(score * 100)}%</span>
+            <div className="p-6">
+              <div className="flex items-center justify-between gap-4 mb-6">
+                <div className="flex items-center gap-4 min-w-0">
+                  <div className="grid place-items-center w-14 h-14 rounded-2xl bg-accent-cyan/10 border border-accent-cyan/30 text-accent-cyan shrink-0">
+                    {(() => {
+                      const Icon = MOOD_ICON[result.detected_mood] || FiActivity
+                      return <Icon size={26} />
+                    })()}
                   </div>
-                ))}
+                  <div className="min-w-0">
+                    <p className="text-ink-mute text-[10px] uppercase tracking-widest mb-1">You're feeling</p>
+                    <h3 className="font-display text-3xl text-ink capitalize tracking-tight truncate">{result.detected_mood}</h3>
+                  </div>
+                </div>
+                <ConfidenceRing value={result.confidence} />
               </div>
-            )}
 
-            {result.lime_explanation?.words?.length > 0 && (
-              <div className="pt-4 border-t border-line">
-                <p className="text-ink-mute text-[10px] uppercase tracking-widest mb-2">
-                  Why this mood?
-                  <span className="ml-2 text-ink-mute normal-case tracking-normal text-[11px]">
-                    LIME · the highlighted words drove the prediction
-                  </span>
-                </p>
-                <div className="text-sm font-body">
-                  <HighlightedText text={lastInput} lime={result.lime_explanation} />
+              {result.emotion_breakdown && Object.keys(result.emotion_breakdown).length > 0 && (
+                <div className="space-y-2.5">
+                  <p className="text-ink-mute text-[10px] uppercase tracking-widest">Emotional spectrum</p>
+                  {Object.entries(result.emotion_breakdown).sort((a, b) => b[1] - a[1]).slice(0, 4).map(([emotion, score], idx) => (
+                    <div key={emotion} className="flex items-center gap-3">
+                      <span className="text-xs text-ink-dim w-24 sm:w-28 capitalize shrink-0">{emotion}</span>
+                      <div className="flex-1 h-2.5 rounded-full bg-bg-hover ring-1 ring-inset ring-line overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          animate={{ width: `${Math.max(score * 100, 3)}%` }}
+                          transition={{ duration: 0.7, delay: 0.15 + idx * 0.08, ease: 'easeOut' }}
+                          className={`h-full rounded-full ${idx === 0 ? 'bg-gradient-to-r from-accent-cyan to-accent-mood' : 'bg-accent-cyan/55'}`}
+                        />
+                      </div>
+                      <span className="text-xs font-mono text-ink w-10 text-right shrink-0">{Math.round(score * 100)}%</span>
+                    </div>
+                  ))}
                 </div>
-                <div className="mt-3 flex items-center gap-4 text-[10px] text-ink-mute">
-                  <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-sm" style={{ background: 'rgba(0,212,255,0.4)' }} /> pushed toward</span>
-                  <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-sm" style={{ background: 'rgba(229,9,20,0.3)' }} /> pushed away</span>
+              )}
+
+              {result.lime_explanation?.words?.length > 0 && (
+                <div className="mt-6 pt-5 border-t border-line">
+                  <p className="text-ink-mute text-[10px] uppercase tracking-widest mb-2">
+                    Why this mood?
+                    <span className="ml-2 text-ink-mute normal-case tracking-normal text-[11px]">
+                      LIME · the highlighted words drove the prediction
+                    </span>
+                  </p>
+                  <div className="text-sm font-body">
+                    <HighlightedText text={lastInput} lime={result.lime_explanation} />
+                  </div>
+                  <div className="mt-3 flex items-center gap-4 text-[10px] text-ink-mute">
+                    <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-sm" style={{ background: 'rgba(0,212,255,0.4)' }} /> pushed toward</span>
+                    <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-sm" style={{ background: 'rgba(229,9,20,0.3)' }} /> pushed away</span>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
