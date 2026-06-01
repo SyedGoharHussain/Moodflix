@@ -93,7 +93,11 @@ export default function Dashboard() {
               movies={moodPicks}
               icon={FiTarget}
             />
-          ) : null}
+          ) : (
+            <p className="px-6 pb-6 text-ink-mute text-sm font-body">
+              Couldn’t load mood-matched picks just now — scroll down for trending titles.
+            </p>
+          )}
         </section>
       )}
 

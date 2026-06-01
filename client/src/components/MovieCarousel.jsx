@@ -18,8 +18,7 @@ export default function MovieCarousel({ title, subtitle, movies = [], icon: Icon
   return (
     <motion.section
       initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       className="mb-10"
       onMouseEnter={() => setHoverArrows(true)}
