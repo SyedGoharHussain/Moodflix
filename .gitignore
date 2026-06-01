@@ -55,3 +55,8 @@ server/ml/models/transformer/model.safetensors
 # GoEmotions / dair-ai). ~3.6 GB — never commit. build_dataset.py reads these
 # locally and falls back to HuggingFace download when absent.
 /models/
+
+# Local scratch / tooling from the GPU retrain + report-update work
+/_*
+torch-*.whl
+client/_*.mjs
