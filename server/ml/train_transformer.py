@@ -157,7 +157,7 @@ def train(args: Args) -> dict:
         label2id=label_to_id,
     )
     model.to(device)
-    scaler = torch.cuda.amp.GradScaler(enabled=use_amp)
+    scaler = torch.amp.GradScaler("cuda", enabled=use_amp)
     amp_context = torch.autocast(device_type="cuda", dtype=torch.float16) if use_amp else nullcontext()
 
     enc_train = _encode(X_train, tokenizer, args.max_len)

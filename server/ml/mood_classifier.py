@@ -468,7 +468,7 @@ def train_model(data_path: str | None = None) -> dict:
 
     os.makedirs(MODEL_DIR, exist_ok=True)
     joblib.dump(pipeline, MODEL_PATH)
-    print(f"[train] saved → {MODEL_PATH}")
+    print(f"[train] saved -> {MODEL_PATH}")
 
     return {
         "accuracy": round(float(acc), 4),
