@@ -128,9 +128,111 @@ MOOD_MAP: dict[str, str | None] = {
 }
 
 
+# Repo root → the user's downloaded raw datasets live under models/.
+# build_dataset.py is at server/ml/data/, so root is three levels up.
+_REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+MODELS_DIR = os.path.join(_REPO_ROOT, "models")
+
+# Label index order for the downloaded dair-ai/emotion CSVs (text,label with 0-5).
+DAIR_AI_LABELS = ["sadness", "joy", "love", "anger", "fear", "surprise"]
+
+# Label index order for the downloaded GoEmotions TSVs (matches data/emotions.txt).
+GO_EMOTIONS_LABELS = [
+    "admiration", "amusement", "anger", "annoyance", "approval", "caring",
+    "confusion", "curiosity", "desire", "disappointment", "disapproval",
+    "disgust", "embarrassment", "excitement", "fear", "gratitude", "grief",
+    "joy", "love", "nervousness", "optimism", "pride", "realization",
+    "relief", "remorse", "sadness", "surprise", "neutral",
+]
+
+
 def _normalize(label: str) -> str | None:
     label = label.strip().lower()
     return MOOD_MAP.get(label)
+
+
+def _first_existing(*paths: str) -> str | None:
+    for p in paths:
+        if p and os.path.exists(p):
+            return p
+    return None
+
+
+def _load_dair_ai_local() -> pd.DataFrame | None:
+    """Load dair-ai/emotion from the locally downloaded CSVs (models/archive (1)/).
+
+    Columns are `text,label` where label is an int 0-5. Merges the train /
+    validation / test splits for maximum real-world signal. Returns None when
+    the local copy is not present (caller falls back to the HF download).
+    """
+    base = _first_existing(
+        os.path.join(MODELS_DIR, "archive (1)"),
+        os.path.join(MODELS_DIR, "archive"),
+    )
+    if not base:
+        return None
+    frames = []
+    for name in ("training.csv", "validation.csv", "test.csv", "train.csv"):
+        path = os.path.join(base, name)
+        if not os.path.exists(path):
+            continue
+        part = pd.read_csv(path)
+        part.columns = [c.strip().lower() for c in part.columns]
+        if not {"text", "label"} <= set(part.columns):
+            continue
+        frames.append(part[["text", "label"]])
+    if not frames:
+        return None
+    raw = pd.concat(frames, ignore_index=True).dropna()
+    rows = []
+    for _, r in raw.iterrows():
+        try:
+            name = DAIR_AI_LABELS[int(r["label"])]
+        except (ValueError, IndexError, TypeError):
+            continue
+        canonical = _normalize(name)
+        if canonical:
+            rows.append((str(r["text"]), canonical))
+    df = pd.DataFrame(rows, columns=["text", "mood"])
+    print(f"[dair-ai/emotion · local] kept {len(df)} rows")
+    return df
+
+
+def _load_go_emotions_local() -> pd.DataFrame | None:
+    """Load GoEmotions from the locally downloaded TSVs (models/archive/data/).
+
+    Each row is `text \\t comma-separated-label-ids \\t comment_id`. We take the
+    first (most prominent) label to keep this single-label, matching the HF
+    `simplified` behaviour. Returns None when the local copy is absent.
+    """
+    base = _first_existing(
+        os.path.join(MODELS_DIR, "archive", "data"),
+        os.path.join(MODELS_DIR, "archive (1)", "data"),
+    )
+    if not base:
+        return None
+    rows = []
+    for name in ("train.tsv", "dev.tsv", "test.tsv"):
+        path = os.path.join(base, name)
+        if not os.path.exists(path):
+            continue
+        tsv = pd.read_csv(path, sep="\t", header=None,
+                          names=["text", "labels", "id"], dtype=str).dropna(subset=["text", "labels"])
+        for _, r in tsv.iterrows():
+            first = str(r["labels"]).split(",")[0].strip()
+            if not first.isdigit():
+                continue
+            idx = int(first)
+            if idx >= len(GO_EMOTIONS_LABELS):
+                continue
+            canonical = _normalize(GO_EMOTIONS_LABELS[idx])
+            if canonical:
+                rows.append((str(r["text"]), canonical))
+    if not rows:
+        return None
+    df = pd.DataFrame(rows, columns=["text", "mood"])
+    print(f"[go_emotions · local] kept {len(df)} rows")
+    return df
 
 
 def _load_local_csv(path: str) -> pd.DataFrame:
@@ -200,60 +302,107 @@ def _balance(df: pd.DataFrame, target_per_class: int = 6000) -> pd.DataFrame:
     return out
 
 
+def _balance_real_first(real: pd.DataFrame, synth: pd.DataFrame,
+                        target_per_class: int = 6000) -> pd.DataFrame:
+    """Build a class-balanced corpus that PRIORITIZES real-world text.
+
+    For every canonical mood we take up to `target_per_class` real samples
+    first, then top the class up to the target from the synthetic pool. This
+    keeps the maximum amount of genuine human text (which is what the model
+    actually sees in production) while still preventing class imbalance —
+    rare moods (adventurous, mind-bending, nostalgic…) get mostly synthetic
+    fill, common ones (happy, sad, dark…) end up almost entirely real.
+    """
+    parts = []
+    for mood in sorted(CANONICAL_MOODS):
+        r = real[real["mood"] == mood]
+        s = synth[synth["mood"] == mood]
+        if len(r) >= target_per_class:
+            picked_r = r.sample(n=target_per_class, random_state=42)
+            picked_s = s.iloc[0:0]
+        else:
+            picked_r = r
+            need = target_per_class - len(r)
+            picked_s = s.sample(n=min(need, len(s)), random_state=42) if len(s) else s
+        picked_r = picked_r.assign(_src="real")
+        picked_s = picked_s.assign(_src="synth")
+        merged = pd.concat([picked_r, picked_s], ignore_index=True)
+        print(f"[balance] {mood:<13} → {len(merged):>5} "
+              f"({len(picked_r)} real + {len(picked_s)} synth)")
+        parts.append(merged)
+    out = pd.concat(parts, ignore_index=True)
+    out = out.sample(frac=1.0, random_state=42).reset_index(drop=True)
+    return out
+
+
 def main() -> None:
     here = os.path.dirname(os.path.abspath(__file__))
     local_csv = os.path.join(here, "mood_training_data.csv")
     synth_csv = os.path.join(here, "synthetic_mood_data.csv")
     out_csv = os.path.join(here, "mood_training_data_clean.csv")
 
-    dfs: list[pd.DataFrame] = []
+    # ── Real-world sources (prioritized in the final balance) ───────────────
+    real_dfs: list[pd.DataFrame] = []
     if os.path.exists(local_csv):
-        dfs.append(_load_local_csv(local_csv))
+        real_dfs.append(_load_local_csv(local_csv))
 
     # Hand-written augmentation specifically for weak classes (adventurous,
     # lonely, nostalgic, relaxed, excited, emotional, mind-bending, motivated)
     aug_csv = os.path.join(here, "augmentation.csv")
     if os.path.exists(aug_csv):
-        dfs.append(_load_local_csv(aug_csv))
+        real_dfs.append(_load_local_csv(aug_csv))
 
-    # Synthetic corpus — 6k samples per class with rich style variation.
-    # This is the dominant signal source for weak classes.
+    # dair-ai/emotion — prefer the locally downloaded CSVs, fall back to HF.
+    dair = _load_dair_ai_local()
+    if dair is None:
+        try:
+            dair = _load_dair_ai()
+        except Exception as e:
+            print(f"[dair-ai/emotion] FAILED ({e}). Continuing without it.", file=sys.stderr)
+    if dair is not None:
+        real_dfs.append(dair)
+
+    # GoEmotions — prefer the locally downloaded TSVs (full ~58k), fall back to HF.
+    go = _load_go_emotions_local()
+    if go is None:
+        try:
+            go = _load_go_emotions()
+        except Exception as e:
+            print(f"[go_emotions] FAILED ({e}). Continuing without it.", file=sys.stderr)
+    if go is not None:
+        real_dfs.append(go)
+
+    # ── Synthetic corpus — only used to TOP UP classes that real data leaves thin ──
     if os.path.exists(synth_csv):
         synth = pd.read_csv(synth_csv)
         synth.columns = [c.strip().lower() for c in synth.columns]
         synth = synth[["text", "mood"]].dropna()
         synth = synth[synth["mood"].isin(CANONICAL_MOODS)]
-        print(f"[synthetic] kept {len(synth)} rows")
-        dfs.append(synth)
+        print(f"[synthetic] available {len(synth)} rows (used only to fill gaps)")
     else:
+        synth = pd.DataFrame(columns=["text", "mood"])
         print("[synthetic] missing — run `python -m ml.data.synth_generator` first.", file=sys.stderr)
 
-    try:
-        dfs.append(_load_dair_ai())
-    except Exception as e:
-        print(f"[dair-ai/emotion] FAILED ({e}). Continuing without it.", file=sys.stderr)
-
-    try:
-        dfs.append(_load_go_emotions())
-    except Exception as e:
-        print(f"[go_emotions] FAILED ({e}). Continuing without it.", file=sys.stderr)
-
-    if not dfs:
+    if not real_dfs and synth.empty:
         print("No data sources loaded. Aborting.", file=sys.stderr)
         sys.exit(1)
 
-    df = pd.concat(dfs, ignore_index=True)
-    # basic text hygiene
-    df["text"] = df["text"].astype(str).str.strip()
-    df = df[df["text"].str.len() > 3]
-    df = df.drop_duplicates(subset=["text"]).reset_index(drop=True)
+    real = pd.concat(real_dfs, ignore_index=True) if real_dfs else pd.DataFrame(columns=["text", "mood"])
+    for frame in (real, synth):
+        if not frame.empty:
+            frame["text"] = frame["text"].astype(str).str.strip()
+    real = real[real["text"].str.len() > 3].drop_duplicates(subset=["text"]).reset_index(drop=True)
+    synth = synth[synth["text"].str.len() > 3].drop_duplicates(subset=["text"]).reset_index(drop=True)
 
     # confirm only canonical labels survive
-    assert set(df["mood"].unique()) <= CANONICAL_MOODS, \
-        f"Non-canonical labels leaked: {set(df['mood'].unique()) - CANONICAL_MOODS}"
+    leaked = (set(real["mood"].unique()) | set(synth["mood"].unique())) - CANONICAL_MOODS
+    assert not leaked, f"Non-canonical labels leaked: {leaked}"
 
-    df = _balance(df, target_per_class=6000)
+    df = _balance_real_first(real, synth, target_per_class=6000)
     print(f"\n[final] total rows: {len(df)}")
+    print(f"[final] real vs synthetic: {int((df['_src'] == 'real').sum())} real / "
+          f"{int((df['_src'] == 'synth').sum())} synthetic")
+    df = df.drop(columns=["_src"])
     print(f"[final] class counts:\n{df['mood'].value_counts()}")
 
     df.to_csv(out_csv, index=False)

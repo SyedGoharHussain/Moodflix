@@ -50,3 +50,8 @@ firebase_credentials.json
 
 # Large ML artifacts (regenerate with server/ml/train_transformer.py)
 server/ml/models/transformer/model.safetensors
+
+# Raw training datasets downloaded from the web (MovieLens / TMDB / IMDB /
+# GoEmotions / dair-ai). ~3.6 GB — never commit. build_dataset.py reads these
+# locally and falls back to HuggingFace download when absent.
+/models/
