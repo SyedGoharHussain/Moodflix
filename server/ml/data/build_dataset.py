@@ -303,23 +303,28 @@ def _balance(df: pd.DataFrame, target_per_class: int = 6000) -> pd.DataFrame:
 
 
 def _balance_real_first(real: pd.DataFrame, synth: pd.DataFrame,
-                        target_per_class: int = 6000) -> pd.DataFrame:
-    """Build a class-balanced corpus that PRIORITIZES real-world text.
+                        target_per_class: int = 6000,
+                        real_cap: int = 3000) -> pd.DataFrame:
+    """Build a class-balanced corpus that BLENDS real-world and synthetic text.
 
-    For every canonical mood we take up to `target_per_class` real samples
-    first, then top the class up to the target from the synthetic pool. This
-    keeps the maximum amount of genuine human text (which is what the model
-    actually sees in production) while still preventing class imbalance —
-    rare moods (adventurous, mind-bending, nostalgic…) get mostly synthetic
-    fill, common ones (happy, sad, dark…) end up almost entirely real.
+    For every canonical mood we take up to `real_cap` genuine samples first,
+    then top the class up to `target_per_class` from the synthetic pool. The
+    cap matters: GoEmotions (Reddit, first-label) is noisy and ambiguous for
+    overlapping moods (stressed/wholesome/curious), so letting it fully
+    dominate a class hurts accuracy. Capping real at ~half the class keeps the
+    clean synthetic backbone (which also covers rare moods like adventurous /
+    nostalgic that have almost no real data) while still teaching the model on
+    real human phrasing. Set real_cap >= target_per_class for a real-first mix.
     """
+    cap = min(real_cap, target_per_class)
     parts = []
     for mood in sorted(CANONICAL_MOODS):
         r = real[real["mood"] == mood]
         s = synth[synth["mood"] == mood]
-        if len(r) >= target_per_class:
-            picked_r = r.sample(n=target_per_class, random_state=42)
-            picked_s = s.iloc[0:0]
+        if len(r) >= cap:
+            picked_r = r.sample(n=cap, random_state=42)
+            need = target_per_class - cap
+            picked_s = s.sample(n=min(need, len(s)), random_state=42) if (need > 0 and len(s)) else s.iloc[0:0]
         else:
             picked_r = r
             need = target_per_class - len(r)
