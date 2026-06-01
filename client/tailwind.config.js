@@ -4,31 +4,32 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Backgrounds — pure black-on-black ladder
+        // Backgrounds — deep navy dark
         bg: {
           base:     '#000000',
-          elevated: '#0a0a0a',
-          card:     '#141414',
-          hover:    '#1f1f1f',
+          elevated: '#080810',
+          card:     '#0f0f1a',
+          hover:    '#1a1a2e',
         },
         // Borders
         line: {
-          subtle: '#1f1f1f',
-          DEFAULT: '#262626',
-          strong: '#3a3a3a',
+          subtle:  '#141428',
+          DEFAULT: '#1e1e3a',
+          strong:  '#2a2a50',
         },
         // Text
         ink: {
           DEFAULT: '#ffffff',
-          dim:     '#a3a3a3',
-          mute:    '#6b6b6b',
-          faint:   '#404040',
+          dim:     '#a3a3b8',
+          mute:    '#5a5a7a',
+          faint:   '#333350',
         },
         // Accents
         accent: {
-          red:  '#e50914',   // Netflix-red, used very sparingly
-          cyan: '#00d4ff',   // "intelligence" — AI / mood signals
-          mood: '#7c5cff',   // calmer mood-pulse purple
+          red:  '#e50914',
+          cyan: '#00d4ff',
+          mood: '#7c5cff',
+          gold: '#ffd700',
         },
       },
       fontFamily: {
